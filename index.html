@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#087f23"><link rel="manifest" href="manifest.json">
+<title>DGS App V67</title>
+<style>
+:root{--green:#087f23;--green2:#0b6b20;--light:#eaf5e8;--line:#c7d9c5;--text:#172018;--muted:#657065;--danger:#b42318;--amber:#a15c00}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7f4;color:var(--text)}header{background:var(--green);color:#fff;padding:14px 16px;position:sticky;top:0;z-index:10;box-shadow:0 2px 7px #0002}header h1{margin:0;font-size:20px}header small{opacity:.9}.wrap{max-width:980px;margin:auto;padding:14px}.nav{display:flex;gap:8px;margin-bottom:14px;overflow:auto}.nav button{white-space:nowrap}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:14px;box-shadow:0 1px 3px #0000000a}h2,h3{margin:4px 0 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}@media(max-width:650px){.grid{grid-template-columns:1fr}}label{font-weight:700;font-size:13px}input,select,textarea{width:100%;margin-top:5px;padding:11px;border:1px solid #b8c7b7;border-radius:8px;font-size:16px;background:#fff}textarea{min-height:80px;resize:vertical}button{border:0;border-radius:9px;padding:11px 14px;font-size:15px;font-weight:700;cursor:pointer;background:#e5ece4;color:#173019}button.primary{background:var(--green);color:#fff}button.danger{background:#fde8e7;color:var(--danger)}button.amber{background:#fff0d7;color:#7b4700}.actions{display:flex;gap:8px;flex-wrap:wrap}.pill{display:inline-block;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700}.ok{background:#dff4e2;color:#176b25}.minor{background:#fff0d7;color:#8a4b00}.def{background:#fde1df;color:#a61b12}.na{background:#e8ece8;color:#566156}.due{background:#fff0d7;color:#7b4700}.status-fit{background:#dff4e2;color:#176b25}.status-minor{background:#fff0d7;color:#8a4b00}.status-do-not-use{background:#fde1df;color:#a61b12}.repair-complete{background:#dff4e2;color:#176b25;font-weight:700}.repair-outstanding{background:#fff0d7;color:#8a4b00;font-weight:700}.repair-due{background:#fff0d7;color:#7b4700;font-weight:700}.check{border:1px solid var(--line);border-radius:10px;padding:10px;margin:8px 0}.checkhead{display:grid;grid-template-columns:34px 1fr;gap:8px}.num{font-weight:800;color:var(--green)}.choices{display:flex;gap:7px;margin-top:9px}.choices button{flex:1}.choices button.sel-ok{background:#bde8c4}.choices button.sel-def{background:#f5b7b2}.choices button.sel-na{background:#d6dcd6}.required-missing{border:2px solid var(--danger)!important;background:#fff0ef!important}.required-missing .choices button{border:1px solid var(--danger)}.hidden{display:none}.muted{color:var(--muted);font-size:13px}.plantrow,.dayrow{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);padding:11px;border-radius:9px;margin:7px 0}.plantrow strong{display:block}.mini{font-size:12px}.statusbox{padding:10px;border-radius:9px;background:var(--light);margin:8px 0}.sig{border:1px dashed #8da08c;border-radius:8px;background:#fff;width:100%;height:150px;touch-action:none}.email-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:650px){.email-grid{grid-template-columns:1fr}}.recipient{border:1px solid var(--line);padding:8px;border-radius:8px;background:#fafcf9}.recipient label{font-weight:600}.photo-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}.photo-preview{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}.photo-thumb{width:72px;height:72px;object-fit:cover;border:1px solid var(--line);border-radius:7px;cursor:pointer}.photo-modal{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;padding:20px;z-index:100}.photo-dialog{background:#fff;border-radius:12px;max-width:95vw;max-height:95vh;padding:12px;box-shadow:0 10px 40px #0008}.photo-dialog img{display:block;max-width:90vw;max-height:75vh;width:auto;height:auto;object-fit:contain;margin:auto}.photo-dialog-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#18301b;color:#fff;padding:12px 16px;border-radius:10px;display:none;z-index:50}.dangerText{color:var(--danger);font-weight:700}.report{background:#fff;padding:24px;max-width:900px;margin:0 auto}.report table{width:100%;border-collapse:collapse;font-size:12px}.report th,.report td{border:1px solid #bbb;padding:5px;vertical-align:top}.report th{background:#eaf5e8}.report h1{color:#087f23}.declarations{margin-top:18px;padding:12px;border:1px solid #bbb;border-radius:8px}.report .photo-thumb{width:300px;height:220px;object-fit:contain;border:1px solid #bbb;border-radius:6px;cursor:default;background:#fff;display:block;margin:8px 0}.report .photo-preview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}.report-signature{display:block;max-width:320px;width:320px;height:110px;object-fit:contain;border:1px solid #bbb;background:#fff}.signature-line{display:inline-block;width:320px;height:110px;border-bottom:1px solid #777;padding-top:70px;color:#777;font-size:12px}.no-print{display:block}@media print{body{background:#fff}.no-print{display:none!important}.report{padding:0;max-width:none}.pagebreak{break-before:page}}
+
+.portal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media(max-width:650px){.portal-grid{grid-template-columns:1fr}}
+.module-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;min-height:150px;box-shadow:0 3px 10px #0000000c;display:flex;flex-direction:column;justify-content:space-between}
+.module-card h3{margin:0 0 8px;font-size:20px;color:var(--green)}
+.module-card p{margin:0 0 14px;color:var(--muted);line-height:1.4}
+.module-card.locked{opacity:.72}
+.module-card .module-icon{font-size:34px;margin-bottom:8px}
+.portal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.role-pill{padding:7px 11px;border-radius:999px;background:#eaf5e8;color:#176b25;font-size:12px;font-weight:800}
+.login-wrap{max-width:460px;margin:10vh auto 0}
+.login-logo{text-align:center;margin-bottom:18px}.login-logo h1{font-size:34px;color:var(--green);margin:0 0 6px}.login-logo p{color:var(--muted);margin:0}
+.login-dgs-logo{display:block;width:190px;max-width:70%;height:auto;object-fit:contain;margin:0 auto 12px}
+.portal-brand{display:flex;align-items:center;gap:14px;min-width:0}.portal-dgs-logo{display:block;width:88px;height:88px;object-fit:contain;flex-shrink:0}
+.dashboard-brand{display:flex;align-items:center;gap:14px;padding:12px 14px}.dashboard-brand img{display:block;width:88px;height:88px;object-fit:contain;flex-shrink:0}.dashboard-brand h2{margin:0 0 6px}
+.report-brand{display:flex;align-items:center;gap:18px;margin-bottom:18px;padding-bottom:12px;border-bottom:2px solid #087f23;break-inside:avoid}.report-brand img{display:block;width:105px;height:105px;object-fit:contain;flex-shrink:0}.report-brand h1{margin:0;font-size:24px;color:#087f23}
+@media(max-width:500px){.dashboard-brand img{width:68px;height:68px}.portal-dgs-logo{width:68px;height:68px}.report-brand img{width:80px;height:80px}.report-brand{gap:12px}.report-brand h1{font-size:20px}}
+.login-error{background:#fde8e7;color:var(--danger);padding:10px;border-radius:8px;margin-top:10px;display:none}
+.userbar-btn{background:transparent!important;color:#fff!important;padding:4px 8px!important;font-size:12px!important}
+.access-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+@media(max-width:700px){.access-grid{grid-template-columns:1fr}}
+.access-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:10px}
+.access-card h3{margin:0;color:var(--green)}
+.access-card button{width:100%;text-align:center;display:flex;align-items:center;justify-content:center;}
+.access-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.35}
+.pin-wrap{max-width:420px;margin:10vh auto 0}
+.pin-display{font-size:28px;text-align:center;letter-spacing:9px}
+.temp-note{font-size:12px;color:var(--muted);background:#f3f6f2;border-radius:8px;padding:9px;margin-top:12px}
+
+
+.supervisor-question h3{font-size:16px;line-height:1.35;margin:0 0 8px}.supervisor-question .choices button{min-height:42px}.supervisor-photo-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.supervisor-photo-actions button{font-size:14px}.supervisor-report-table{width:100%;border-collapse:collapse;margin:10px 0 18px}.supervisor-report-table th,.supervisor-report-table td{border:1px solid #b8c7b7;padding:7px;vertical-align:top;text-align:left}.supervisor-report-table th{background:#eaf5e8}.sup-record-status{font-size:12px;color:#8a5400}
+</style></head>
+<body>
+<header><h1 id="appTitle">DGS App</h1><small id="appSubtitle">DGS site management portal</small><span id="userBar" style="float:right;font-size:12px;opacity:.95"></span></header>
+<div class="wrap" id="app"></div><div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+
+const UNIVERSAL=[
+"Operator’s manual, inspection records and required examination/certification available and in date",
+"General condition; no visible structural damage, cracked welds, distortion, missing parts or loose fixings",
+"Access steps, ladders, handrails, platforms and anti-slip surfaces secure and clean",
+"Guards, covers, interlocks and safety devices fitted, secure and functional",
+"Cab, ROPS/FOPS or operator station undamaged; doors, windows and mirrors serviceable",
+"Seat and seat belt/restraint secure and operational",
+"Visibility aids, cameras, wipers, washers and demisters operational",
+"Horn, beacon, lights, indicators, reversing alarm and other warnings operational",
+"Emergency stops, isolation devices, keys and security controls functional and identified",
+"Tyres/wheels or tracks/rollers/sprockets in acceptable condition and correctly secured/tensioned",
+"Steering, service brake, parking brake and travel controls function correctly",
+"Engine, battery, exhaust and cooling system secure; no abnormal noise, smoke or overheating",
+"Fuel, oil, coolant, hydraulic fluid and other levels acceptable",
+"No fuel, oil, coolant, air, vacuum, slurry or hydraulic leaks",
+"Hoses, pipes, cables, couplings, connectors and retaining devices undamaged and secure",
+"Rated capacity, operating limits, decals and safety signs present and legible",
+"Fire extinguisher, spill kit and first-response equipment present where required and serviceable",
+"Safe start-up and function test completed; gauges and fault indicators normal"
+];
+const SPEC={
+"Excavator":"Boom/dipper/bucket, slew area, slew lock, track condition, quick hitch and auxiliary lines",
+"Dozer":"Blade, push arms, ripper, tracks, access/egress and reversing visibility",
+"Piling rig":"Mast/leader, ropes/chains, winches, crowd system, stability/levelling, guards and emergency stops",
+"Articulated dump truck (ADT)":"Articulation joint/lock, body and tailgate, hoist, tyres, brakes, steering and body-down indicator",
+"Powder silo trailer":"Tank/body, legs, pressure relief, gauges, hoses/couplings, earthing, dust control and discharge valves",
+"Silo":"Road-going chassis, tyres, wheels and wheel nuts, service/parking brakes, road lights and reflectors, landing legs and supports, tank integrity, pressure gauges and relief/venting devices, loading/discharge valves, delivery hoses/couplings/clamps, air lines, onboard engine and fuel/oil/coolant, compressor/blower, pressure build-up and controls, guards, emergency stop, dust containment and safe discharge area",
+"Generator":"Electrical enclosure, outlets, leads, earthing arrangements, emergency stop, ventilation and fuel system",
+"Pump":"Suction/discharge hoses, couplings, guards, priming, strainers, leaks and safe discharge route",
+"Fuel tank / bowser":"Tank integrity, bunding, cap/vents, hose/nozzle, valves, labels, earthing and spill equipment",
+"Vacuum tank":"Tank condition, vacuum/pressure controls, relief devices, hoses, closures, valves and contents identification",
+"Tractor":"Three-point linkage, PTO guard, drawbar, hydraulics, tyres, brakes and road/field lighting",
+"Roller":"Drum/tyres, scraper bars, vibration system, water spray, articulation and edge visibility",
+"Telehandler":"Boom/forks, carriage and locking, load chart, rated capacity indicator/limiter, stabilisers and attachment recognition",
+"ATV":"Tyres, steering, brakes, throttle return, guards, racks, lights and operator protection specified by manufacturer",
+"Loading shovel":"Loader arms, bucket, linkage, articulation joint/lock, tyres and reversing aids",
+"Crusher":"Feed hopper, guards, conveyors, pull wires/interlocks, emergency stops, blockages and dust suppression",
+"Screener":"Decks, guards, conveyors, belts/rollers, emergency stops, access platforms and dust controls",
+"Wirtgen / milling machine":"Milling drum and guards, conveyors, water spray, levelling sensors, emergency stops and edge protection",
+"Tractor and spreader":"PTO/drive guards, hopper/body, spreader mechanism, calibration/controls, hydraulics and exclusion area",
+"Tractor and Stehr dust free stabiliser":"PTO and drive guards, three-point linkage, hydraulic connections, stabiliser rotor and housing, dust-control system, hoses, spray nozzles, hopper, controls and exclusion area"
+};
+const DEFAULT_RECIPIENTS=[
+['Plant Manager','craig@dgs.co.uk'],['Plant dept','plant@dgs.co.uk'],['HSE','mick@dgs.co.uk'],['HSE Admin','simona@dgs.co.uk'],
+['Site manager','Brandon.Hayes@dgs.co.uk'],['Site manager','Craig.Ackerman@dgs.co.uk'],['Site manager','George@dgs.co.uk'],['Site manager','Ian@dgs.co.uk'],['Site manager','Jim@dgs.co.uk'],['Site manager','Phillip@dgs.co.uk'],['Site manager','Shaun.Elliot@dgs.co.uk'],['Site manager','Shaun@dgs.co.uk']];
+const KEY='dgs-puwer-v3';
+function uid(){return (window.crypto&&window.crypto.randomUUID)?window.crypto.randomUUID():'id-'+Date.now()+'-'+Math.random().toString(36).slice(2)}
+let state=JSON.parse(localStorage.getItem(KEY)||'null');
+if(!state){const old=localStorage.getItem('dgs-puwer-v2')||localStorage.getItem('dgs-puwer-v1'); state=old?JSON.parse(old):{plants:[],inspections:[],recipients:DEFAULT_RECIPIENTS};}
+state.plants??=[];state.inspections??=[];state.supervisorInspections??=[];state.recipients??=DEFAULT_RECIPIENTS;
+// Rename the former long silo-trailer label without losing existing plant records.
+state.plants.forEach(p=>{if(p&&p.type==='Dry powder silo road-going trailer')p.type='Silo'});
+let db=null, centralEnabled=false;
+let cloudSyncBusy=false;
+let supervisorTableError='';
+let supervisorCurrent=null;
+let realtimeChannel=null;
+let currentUser=null;
+let currentProfile=null;
+let currentRole='';
+let currentModule='portal';
+let localAccessMode=false;
+const ROLE_LABELS={admin:'Admin',plant_department:'Plant department',site_management:'Site management team',engineering_department:'Engineering department',operator:'Plant operator'};
+const ROLE_PERMISSIONS={
+  admin:new Set(['puwer.view','puwer.inspect','plant.manage','plant.hire.add','reports.view','hire.view','hire.manage','supervisor.view','supervisor.manage']),
+  plant_department:new Set(['puwer.view','puwer.inspect','plant.manage','plant.hire.add','reports.view','hire.view','hire.manage','supervisor.view','supervisor.manage']),
+  site_management:new Set(['puwer.view','puwer.inspect','plant.manage','plant.hire.add','reports.view','hire.view','hire.manage','supervisor.view','supervisor.manage']),
+  engineering_department:new Set(['puwer.view','puwer.inspect','plant.manage','plant.hire.add','reports.view','hire.view','hire.manage','supervisor.view','supervisor.manage']),
+  operator:new Set(['puwer.view','puwer.inspect','plant.hire.add'])
+};
+try{ if(window.DGS_SUPABASE_URL && window.DGS_SUPABASE_KEY && window.supabase){ db=window.supabase.createClient(window.DGS_SUPABASE_URL,window.DGS_SUPABASE_KEY); centralEnabled=true; } }catch(e){ console.warn('Central database disabled',e); }
+function saveLocal(){
+  try{localStorage.setItem(KEY,JSON.stringify(state));return true}
+  catch(e){
+    // Mobile browsers can have a much smaller/less predictable localStorage quota.
+    // Keep the lightweight inspection data locally and rely on Supabase for photos.
+    try{
+      const safe=JSON.parse(JSON.stringify(state,(k,v)=>{
+        if(k==='checkPhotos')return undefined;
+        if(k==='photos' || k==='additionalPhotos')return undefined;
+        return v;
+      }));
+      localStorage.setItem(KEY,JSON.stringify(safe));
+      console.warn('Local device cache trimmed because storage quota was reached',e);
+      return false;
+    }catch(e2){
+      console.warn('Could not save local device cache',e2);
+      return false;
+    }
+  }
+}
+function save(){saveLocal();}
+async function loadFromCloud(){
+  if(!centralEnabled) return;
+  let plantsData=null, plantsError=null, inspData=null, inspError=null;
+  const [{data:ps,error:pe},{data:is,error:ie}]=await Promise.all([
+    db.from('plants').select('*').order('created_at'),
+    db.from('inspections').select('*').order('inspection_date')
+  ]);
+  plantsData=ps||[]; plantsError=pe; inspData=is||[]; inspError=ie;
+
+  // The temporary PIN/anonymous role setup can make direct table reads return an
+  // empty set on projects where the access-control SQL has not fully propagated.
+  // Try the secure bootstrap RPC as a fallback before deciding that the cloud is empty.
+  if((plantsError || inspError || ((!plantsData.length && !inspData.length) && (state.plants.length || state.inspections.length)))){
+    try{
+      const {data:boot,error:be}=await db.rpc('dgs_get_puwer_bootstrap');
+      if(!be && boot){
+        plantsData=Array.isArray(boot.plants)?boot.plants:plantsData;
+        inspData=Array.isArray(boot.inspections)?boot.inspections:inspData;
+        plantsError=null; inspError=null;
+      }
+    }catch(e){console.warn('Bootstrap RPC unavailable',e)}
+  }
+  if(plantsError) throw plantsError;
+  if(inspError) throw inspError;
+
+  const pendingPlants=(state.plants||[]).filter(p=>p&&p._pendingSync);
+  const cloudPlants=(plantsData||[]).map(p=>({id:p.id,list:p.plant_list,name:p.fleet_name,type:(p.plant_type==='Dry powder silo road-going trailer'?'Silo':p.plant_type),site:p.site,make:p.make_model,serial:p.serial_number||''}));
+  const cloudInspections=(inspData||[]).map(i=>{const d=i.data||{};d.id=i.id;d.plantId=i.plant_id;d.date=i.inspection_date;d.time=i.inspection_time;d.createdBy=i.created_by||d.createdBy||'';return d});
+
+  // Never erase a known local dataset because a cloud query temporarily returned no rows.
+  // Keep new plant records visible on this device until the shared-table upsert succeeds.
+  if(cloudPlants.length || state.plants.length===0){
+    const cloudIds=new Set(cloudPlants.map(p=>String(p.id)));
+    state.plants=[...cloudPlants,...pendingPlants.filter(p=>!cloudIds.has(String(p.id)))];
+  }else if(pendingPlants.length){
+    const existingIds=new Set(state.plants.map(p=>String(p.id)));
+    state.plants.push(...pendingPlants.filter(p=>!existingIds.has(String(p.id))));
+  }
+  if(cloudInspections.length || state.inspections.length===0) state.inspections=cloudInspections;
+  await loadSupervisorInspectionsFromCloud();
+  saveLocal();
+}
+async function loadSupervisorInspectionsFromCloud(){
+  if(!centralEnabled)return;
+  try{
+    const {data,error}=await db.from('supervisor_inspections').select('*').order('inspection_date',{ascending:false});
+    if(error){supervisorTableError=error.message||'Supervisor inspection table is unavailable';console.warn('Supervisor inspection cloud load failed',error);return}
+    supervisorTableError='';
+    const cloud=(data||[]).map(row=>{
+      const d=row.data&&typeof row.data==='object'?row.data:{};
+      return {...d,id:row.id,site:row.site||d.site||'',inspector:row.inspector_name||d.inspector||'',date:row.inspection_date||d.date||''};
+    });
+    const pending=(state.supervisorInspections||[]).filter(s=>s&&s._pendingSync);
+    if(cloud.length || (state.supervisorInspections||[]).length===0){
+      const ids=new Set(cloud.map(s=>String(s.id)));
+      state.supervisorInspections=[...cloud,...pending.filter(s=>!ids.has(String(s.id)))];
+    }else if(pending.length){
+      const ids=new Set((state.supervisorInspections||[]).map(s=>String(s.id)));
+      state.supervisorInspections.push(...pending.filter(s=>!ids.has(String(s.id))));
+    }
+  }catch(e){supervisorTableError=e?.message||String(e);console.warn('Supervisor inspection cloud load failed',e)}
+}
+async function syncSupervisorInspectionToCloud(s){
+  if(!centralEnabled)throw new Error('Central database is not configured');
+  const data={...s};delete data._pendingSync;
+  const row={id:String(s.id),site:s.site||'',inspector_name:s.inspector||'',inspection_date:s.date||dateNow(),data,updated_at:new Date().toISOString()};
+  const {error}=await db.from('supervisor_inspections').upsert([row],{onConflict:'id'});
+  if(error)throw error;
+}
+async function syncNormalizedInspectionToCloud(d){
+  if(!centralEnabled)return;
+  // The full inspection JSON in public.inspections.data is the source of truth
+  // for photo attachments. Do not duplicate base64 photos into the normalized
+  // tables because large photo payloads can cause operator saves to fail.
+  const checkRows=[];
+  UNIVERSAL.forEach((q,i)=>checkRows.push({inspection_id:d.id,check_key:'u'+i,check_number:String(i+1),check_item:q,result:d.checks?.[i]||'',comment:d.comments?.['u'+i]||'',photos:[]}));
+  const plant=state.plants.find(p=>String(p.id)===String(d.plantId));
+  checkRows.push({inspection_id:d.id,check_key:'spec',check_number:'P',check_item:SPEC[plant?.type]||'Plant-specific check',result:d.spec||'',comment:d.comments?.spec||'',photos:[]});
+  const {error:ce}=await db.from('inspection_checks').upsert(checkRows,{onConflict:'inspection_id,check_key'});
+  if(ce)throw ce;
+
+  const {error:de}=await db.from('defects').delete().eq('inspection_id',d.id);
+  if(de)throw de;
+  const defects=(d.defects||[]).map(x=>({inspection_id:d.id,ref:String(x.ref??''),auto_key:x.autoKey||null,defect:x.defect||'',immediate_action:x.action||'',reported_to:x.reported||'',target_completion:x.target||'',closed_by:x.closed||''}));
+  if(defects.length){
+    const {error:die}=await db.from('defects').insert(defects);
+    if(die)throw die;
+  }
+}
+async function syncStateToCloud(){
+  if(!centralEnabled)return;
+  if(!can('plant.manage') && !can('puwer.inspect'))return;
+  cloudSyncBusy=true;
+  try{
+    if(can('plant.manage')){
+      const plantRows=state.plants.map(p=>({id:p.id,plant_list:p.list||'DGS Plant',site:p.site||'',plant_type:p.type||'',make_model:p.make||'',fleet_name:p.name||'',serial_number:p.serial||'',updated_at:new Date().toISOString()}));
+      if(plantRows.length){const {error}=await db.from('plants').upsert(plantRows,{onConflict:'id'});if(error)throw error;}
+    }
+    const inspRows=state.inspections.map(d=>({id:d.id,plant_id:d.plantId,inspection_date:d.date,inspection_time:d.time||'',created_by:(d.createdBy||((currentUser?.id && !localAccessMode)?currentUser.id:null)),data:d,updated_at:new Date().toISOString()}));
+    if(inspRows.length){const {error}=await db.from('inspections').upsert(inspRows,{onConflict:'id'});if(error)throw error;}
+    for(const d of state.inspections) await syncNormalizedInspectionToCloud(d);
+  }finally{cloudSyncBusy=false;}
+}
+async function syncInspectionToCloud(d){
+  if(!centralEnabled)return;
+  if(!can('puwer.inspect') && !can('plant.manage'))throw new Error('Inspection access not available');
+  const row={id:d.id,plant_id:d.plantId,inspection_date:d.date,inspection_time:d.time||'',created_by:(d.createdBy||((currentUser?.id && !localAccessMode)?currentUser.id:null)),data:d,updated_at:new Date().toISOString()};
+  const {error}=await db.from('inspections').upsert([row],{onConflict:'id'});
+  if(error)throw error;
+  await syncNormalizedInspectionToCloud(d);
+}
+async function syncPlantFromInspection(plantId,site,serial){
+  if(!centralEnabled)return;
+  const patch={site:site||''};
+  if(serial)patch.serial_number=serial;
+  patch.updated_at=new Date().toISOString();
+  const {error}=await db.from('plants').update(patch).eq('id',plantId);
+  if(error)throw error;
+}
+
+async function refreshCloud(){if(!centralEnabled)return false;if(cloudSyncBusy)return false;try{await loadFromCloud();home();return true}catch(e){console.warn('Cloud refresh failed',e);toast('Central database unavailable — using this device data');return false;}}
+function can(permission){return !!currentRole && !!ROLE_PERMISSIONS[currentRole]?.has(permission)}
+function requirePermission(permission,msg='You do not have access to this feature.'){if(can(permission))return true;toast(msg);return false}
+function setHeader(title,subtitle){const a=document.getElementById('appTitle'),b=document.getElementById('appSubtitle'),u=document.getElementById('userBar');if(a)a.textContent=title;if(b)b.textContent=subtitle;if(u)u.innerHTML=currentRole?`${esc(currentProfile?.full_name||ROLE_LABELS[currentRole]||'User')} • ${esc(ROLE_LABELS[currentRole]||currentRole)} <button class="userbar-btn" onclick="signOut()">Sign out</button>`:''}
+function loginScreen(message=''){
+  currentModule='login';current=null;setHeader('DGS App','Select your access level');
+  document.getElementById('app').innerHTML=`
+  <div class="login-wrap">
+    <div class="card">
+      <div class="login-logo"><img class="login-dgs-logo" src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><h1>DGS App</h1><p>Plant, site and safety management</p></div>
+      <div class="access-grid">
+        <div class="access-card">
+          <div style="font-size:30px">🔐</div>
+          <button class="primary" onclick="showPinScreen('admin')">Admin access</button>
+        </div>
+        <div class="access-card">
+          <div style="font-size:30px">🧰</div>
+          <button class="primary" onclick="showPinScreen('plant_department')">Plant dept access</button>
+        </div>
+        <div class="access-card">
+          <div style="font-size:30px">🏗️</div>
+          <button class="primary" onclick="showPinScreen('site_management')">Management access</button>
+        </div>
+        <div class="access-card">
+          <div style="font-size:30px">⚙️</div>
+          <button class="primary" onclick="showPinScreen('engineering_department')">Engineering access</button>
+        </div>
+        <div class="access-card">
+          <div style="font-size:30px">👷</div>
+          <button onclick="operatorAccess()">Operator access</button>
+        </div>
+      </div>
+      <div id="loginError" class="login-error" style="${message?'display:block':''}">${esc(message)}</div>
+      <div class="temp-note">Temporary access PINs: Admin <strong>1111</strong> · Plant dept <strong>2222</strong> · Site management <strong>3333</strong> · Engineering dept <strong>4444</strong> · Operators <strong>no PIN</strong>.</div>
+      <div class="mini" style="text-align:center;margin-top:10px">DGS App V67 · <button type="button" onclick="forceAppUpdate()" style="background:transparent;padding:2px 4px;font-size:12px;color:var(--green);text-decoration:underline">Refresh app version</button></div>
+    </div>
+  </div>`;
+}
+function showPinScreen(role){
+  currentModule='pin';current=null;
+  const accessDetails={
+    admin:{title:'Admin access',description:'Enter the temporary Admin PIN.',name:'Admin'},
+    plant_department:{title:'Plant department access',description:'Enter the temporary Plant department PIN.',name:'Plant department'},
+    site_management:{title:'Site management access',description:'Enter the temporary Site management PIN.',name:'Site management'},
+    engineering_department:{title:'Engineering department access',description:'Enter the temporary Engineering department PIN.',name:'Engineering department'}
+  };
+  const access=accessDetails[role];
+  if(!access){loginScreen('Unknown access level.');return}
+  const title=access.title;
+  const description=access.description;
+  setHeader('DGS App',title);
+  document.getElementById('app').innerHTML=`
+  <div class="pin-wrap">
+    <div class="card">
+      <div class="login-logo"><h1>${esc(title)}</h1><p>${esc(description)}</p></div>
+      <label>PIN<input id="accessPin" class="pin-display" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" autofocus placeholder="••••" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4)" onkeydown="if(event.key==='Enter')submitPinAccess('${role}')"></label>
+      <div class="actions" style="margin-top:14px">
+        <button class="primary" style="flex:1" onclick="submitPinAccess('${role}')">Continue</button>
+        <button style="flex:1" onclick="loginScreen()">Back</button>
+      </div>
+      <div id="loginError" class="login-error"></div>
+      <div class="temp-note">Temporary PIN for ${esc(access.name)} access.</div>
+    </div>
+  </div>`;
+  document.getElementById('accessPin')?.focus();
+}
+async function ensureAnonymousSession(){
+  if(!centralEnabled) throw new Error('Central database is not configured.');
+  const {data:{session}}=await db.auth.getSession();
+  if(session?.user) return session;
+  const {data,error}=await db.auth.signInAnonymously();
+  if(error) throw error;
+  return data.session;
+}
+async function startDgsAccess(role){
+  authFlowBusy=true;
+  localAccessMode=true;
+  currentRole=role;
+  const roleNames={admin:'Admin',plant_department:'Plant department',site_management:'Site management team',engineering_department:'Engineering department',operator:'Plant operator'};
+  currentProfile={full_name: roleNames[role]||'DGS user', role, active:true};
+  currentUser=null;
+
+  try{
+    // Temporary PIN/operator mode intentionally uses the same Supabase anon
+    // connection that the working PUWER app used before DGS account auth was
+    // introduced. Do NOT create an anonymous Auth session here: doing so changes
+    // Postgres from the anon role to authenticated and can block the existing
+    // shared plant/inspection policies.
+    if(centralEnabled){
+      try{await db.auth.signOut();}catch(_){}
+      try{await loadFromCloud()}catch(e){console.warn('Cloud data unavailable in temporary access mode',e);toast('Shared database could not be loaded. Check the V44 Supabase access SQL.')}
+      try{setupRealtimeSync()}catch(_){}
+    }
+    portalHome();
+  }catch(e){
+    console.error(e);
+    currentUser=null;currentProfile=null;currentRole='';
+    loginScreen(e.message||'Could not start DGS access.');
+  }finally{
+    authFlowBusy=false;
+    setHeader('DGS App','Site management portal');
+  }
+}
+async function operatorAccess(){ return startDgsAccess('operator'); }
+async function submitPinAccess(role){
+  const input=document.getElementById('accessPin');
+  const pin=String(input?.value??'').replace(/\D/g,'').slice(0,4);
+  const err=document.getElementById('loginError');
+  if(input) input.value=pin;
+  if(pin.length!==4){if(err){err.textContent='Enter the 4-digit PIN.';err.style.display='block'}return}
+  const expectedPins={admin:'1111',plant_department:'2222',site_management:'3333',engineering_department:'4444'};
+  if(expectedPins[role]!==pin){if(err){err.textContent='Incorrect PIN for this access level.';err.style.display='block'}return}
+  if(err) err.style.display='none';
+  await startDgsAccess(role);
+}
+async function forceAppUpdate(){
+  try{
+    if('serviceWorker' in navigator){const regs=await navigator.serviceWorker.getRegistrations();for(const reg of regs){try{await reg.unregister()}catch(_){}}
+    }
+    if(window.caches){const keys=await caches.keys();await Promise.all(keys.map(k=>caches.delete(k)))}
+  }catch(e){console.warn('App cache reset failed',e)}
+  location.href=location.pathname+'?v=65&t='+Date.now();
+}
+async function signIn(){ loginScreen('Password sign-in has been replaced by the DGS access PIN / operator access screen.'); }
+async function signIn(){ loginScreen('Password sign-in has been replaced by the DGS access PIN / operator access screen.'); }
+async function loadProfileForSession(session){
+  currentUser=session?.user||null;
+  if(!currentUser){currentProfile=null;currentRole='';return false}
+  const {data,error}=await db.from('dgs_profiles').select('*').eq('user_id',currentUser.id).maybeSingle();
+  if(error)throw error;
+  if(!data||data.active===false)throw new Error('Your DGS account is not authorised. Please contact an administrator.');
+  currentProfile=data;currentRole=data.role||'operator';return true;
+}
+function stopRealtimeSync(){if(realtimeChannel&&db){try{db.removeChannel(realtimeChannel)}catch(e){}}realtimeChannel=null}
+async function handleAuthSession(session){
+  if(authFlowBusy || localAccessMode)return;
+  if(!session){
+    currentUser=null;currentProfile=null;currentRole='';stopRealtimeSync();loginScreen();return;
+  }
+  // Anonymous sessions are not assigned a role until the user chooses an access level.
+  if(session.user?.is_anonymous){
+    currentUser=null;currentProfile=null;currentRole='';stopRealtimeSync();loginScreen();return;
+  }
+  try{
+    await loadProfileForSession(session);await loadFromCloud();setupRealtimeSync();portalHome();
+  }catch(e){
+    console.warn('Profile/session setup failed',e);stopRealtimeSync();try{await db.auth.signOut()}catch(_){}loginScreen(e.message||'Could not load your DGS access profile.');
+  }
+}
+async function signOut(){
+  try{authFlowBusy=true;stopRealtimeSync();if(!localAccessMode && db)await db.auth.signOut()}
+  catch(e){console.warn(e)}
+  finally{authFlowBusy=false;localAccessMode=false;currentUser=null;currentProfile=null;currentRole='';loginScreen()}
+}
+function portalHome(){currentModule='portal';current=null;setHeader('DGS App','Site management portal');const role=ROLE_LABELS[currentRole]||currentRole||'No role';const puwerCard=moduleCard('🛠️','PUWER Inspection','Daily plant pre-use inspections, defects, repairs and reports.','puwer.view','openPuwer()','Open PUWER');const otherCards=currentRole==='operator'?'':moduleCard('🚚','Plant On Hire / Off Hire','Manage plant hire status and movements between projects.','hire.view','openModule("hire")','Open Plant Hire')+moduleCard('📋','Supervisor Site Inspection','Supervisor site checks, observations and follow-up actions.','supervisor.view','openSupervisorDashboard()','Open Supervisor Dashboard');document.getElementById('app').innerHTML=`<div class="nav"><button onclick="signOut()">↩ Return to login screen</button></div><div class="card"><div class="portal-head"><div class="portal-brand"><img class="portal-dgs-logo" src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><div><h2 style="margin-bottom:4px">DGS App</h2><div class="muted">All DGS site applications in one place.</div></div></div><span class="role-pill">Access: ${esc(role)}</span></div><div class="mini">Session: ${currentUser?'shared':'local'}${currentRole?` • ${esc(currentRole)}`:''}</div></div><div class="portal-grid">${puwerCard}${otherCards}</div>`}
+function moduleCard(icon,title,desc,permission,action,label){const allowed=can(permission);return `<div class="module-card ${allowed?'':'locked'}"><div><div class="module-icon">${icon}</div><h3>${esc(title)}</h3><p>${esc(desc)}</p></div><button ${allowed?'class="primary"':''} onclick="${action}">${allowed?esc(label):'🔒 Restricted'}</button></div>`}
+function openPuwer(){if(!requirePermission('puwer.view'))return;currentModule='puwer';appHome()}
+
+const SUPERVISOR_QUESTIONS=[
+  "Are all personnel wearing the required PPE; is it in good condition?",
+  "Are vehicles & plant parked in a suitable & safe area?",
+  "Is the working area clean & tidy; is the working area free of hazards?",
+  "Have all necessary pre use checks / detailed inspections of Ladders / Towers / Podium’s been performed & recorded?",
+  "Are all permits in place i.e. Ground Disturbance, Hot Works, Ladder or Tower?",
+  "Are all excavations made safe, do they have suitable fencing, vehicle bunds, De-Watering in place and a safe access and egress?",
+  "Is the boundary fence secure? Is the site compound suitably fenced with designated footpaths in place to segregate personnel and plant?",
+  "Is lighting on site sufficient?",
+  "Are suitable welfare facilities available? Are they clean and tidy?",
+  "Are all safety signs clear & legible?",
+  "Are first aid personnel on site, are first aid kits available & the location identified?",
+  "Are the stores tidy, is all COSHH stored correctly and identified? Are spill kits and fire extinguishers available?",
+  "Is the risk assessment & method statement available to operatives?",
+  "Is the risk assessment still relevant to the project? Any new risks not covered?",
+  "Have accidents / near misses been investigated & records kept?",
+  "Defibrillator – checked and in good working order, Pads have not passed expiry date"
+];
+function openSupervisorDashboard(){
+  if(!requirePermission('supervisor.view','Supervisor Site Inspection is not available for this access level.'))return;
+  current=null;supervisorCurrent=null;currentModule='supervisor-dashboard';
+  setHeader('Supervisor Weekly Safety Check','Weekly site safety inspections • '+(ROLE_LABELS[currentRole]||currentRole));
+  document.getElementById('app').innerHTML=`
+    <div class="nav">
+      <button onclick="portalHome()">← DGS App Home</button>
+      <button class="primary" onclick="openSupervisorDashboard()">Supervisor Dashboard</button>
+      ${can('supervisor.manage')?'<button class="primary" onclick="newSupervisorInspection()">+ New weekly inspection</button>':''}
+      <button onclick="refreshSupervisorCloud()">↻ Refresh shared data</button>
+      <button class="danger" onclick="signOut()">↩ Return to login</button>
+    </div>
+    <div class="card dashboard-brand"><img src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><div><h2>Supervisor Weekly Safety Check</h2><div class="muted">Weekly site inspection, comments and photo evidence.</div></div></div>
+    <div class="card"><h2>Filter completed inspections</h2><div class="grid"><label>Site name<select id="supervisorDashSite" onchange="renderSupervisorDashboard()"><option value="">All sites</option></select></label><label>From date<input id="supervisorDashFrom" type="date" onchange="renderSupervisorDashboard()"></label><label>To date<input id="supervisorDashTo" type="date" onchange="renderSupervisorDashboard()"></label></div><div class="actions" style="margin-top:10px"><button onclick="clearSupervisorSiteFilter()">Clear filters</button></div></div>
+    <div class="card"><h2>Weekly site inspections</h2><div id="supervisorDashboard"></div></div>
+    ${can('reports.view')?'<div class="card"><h2>Send report</h2><p class="muted">Generate a weekly safety inspection report for a site and date range, then email selected recipients.</p><button class="primary" onclick="supervisorReport()">Send report</button></div>':''}
+  `;
+  renderSupervisorDashboard();
+}
+function supervisorSiteOptions(selected=''){
+  const sites=[...new Set([...siteNames(),...(state.supervisorInspections||[]).map(s=>s.site).filter(Boolean)])].sort((a,b)=>String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}));
+  return '<option value="">Select site...</option>'+sites.map(s=>`<option value="${esc(s)}" ${String(s)===String(selected)?'selected':''}>${esc(s)}</option>`).join('')+'<option value="__ADD_NEW_SITE__">＋ Add new project / site...</option>';
+}
+function handleSupervisorSiteChange(el){
+  if(!el||el.value!=='__ADD_NEW_SITE__')return;
+  const name=window.prompt('Enter the new project / site name:','');
+  if(name===null){el.value='';return}
+  const site=String(name).trim();
+  if(!site){toast('Enter a project / site name');el.value='';return}
+  const existing=[...siteNames(),...(state.supervisorInspections||[]).map(s=>s.site)].find(x=>String(x||'').toLowerCase()===site.toLowerCase());
+  if(existing){el.value=existing;toast('Existing project / site selected');return}
+  const opt=document.createElement('option');opt.value=site;opt.textContent=site;
+  el.insertBefore(opt,el.lastElementChild);el.value=site;
+  toast('New site will be stored when you save this inspection');
+}
+function renderSupervisorDashboard(){
+  const host=document.getElementById('supervisorDashboard');
+  if(!host)return;
+  const siteEl=document.getElementById('supervisorDashSite');
+  const selected=siteEl?.value||'';
+  const fromEl=document.getElementById('supervisorDashFrom');
+  const toEl=document.getElementById('supervisorDashTo');
+  const from=fromEl?.value||'';
+  const to=toEl?.value||'';
+  const sites=[...new Set([...siteNames(),...(state.supervisorInspections||[]).map(s=>s.site).filter(Boolean)])].sort((a,b)=>String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}));
+  if(siteEl){
+    siteEl.innerHTML='<option value="">All sites</option>'+sites.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');
+    if(sites.includes(selected))siteEl.value=selected;
+  }
+  const filter=siteEl?.value||'';
+  const rows=(state.supervisorInspections||[]).filter(s=>
+    (!filter||s.site===filter) &&
+    (!from||String(s.date||'')>=from) &&
+    (!to||String(s.date||'')<=to)
+  ).sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+  let note=supervisorTableError?`<div class="statusbox"><strong>Shared supervisor-inspection table unavailable.</strong><div class="mini">Run <code>dgs-supervisor-inspections.sql</code> once in Supabase, then refresh. Details: ${esc(supervisorTableError)}</div></div>`:'';
+  host.innerHTML=note+(rows.length?rows.map(s=>{
+    const answers=Object.values(s.answers||{});const noCount=answers.filter(x=>x==='No').length;const pending=s._pendingSync?'<div class="sup-record-status">Pending shared sync</div>':'';
+    return `<div class="dayrow"><div><strong>${esc(s.site||'Site not recorded')}</strong><div class="mini">${esc(s.date||'')} • ${esc(s.inspector||'')}</div><div class="mini">${answers.filter(x=>x==='Yes').length} Yes · ${noCount} No · ${answers.filter(x=>x==='N/A').length} N/A</div>${pending}</div><div class="actions"><button class="primary" onclick="editSupervisorInspection('${esc(s.id)}')">Open / edit</button></div></div>`;
+  }).join(''):'<p class="muted">No weekly site inspections match this filter yet.</p>');
+}
+function clearSupervisorSiteFilter(){const x=document.getElementById('supervisorDashSite'),f=document.getElementById('supervisorDashFrom'),t=document.getElementById('supervisorDashTo');if(x)x.value='';if(f)f.value='';if(t)t.value='';renderSupervisorDashboard()}
+async function refreshSupervisorCloud(){
+  if(!centralEnabled){renderSupervisorDashboard();return}
+  try{await loadFromCloud();renderSupervisorDashboard();toast('Supervisor data refreshed')}catch(e){console.warn(e);toast('Shared data refresh failed: '+(e?.message||e))}
+}
+function newSupervisorInspection(){
+  if(!requirePermission('supervisor.manage','You do not have permission to complete a supervisor site inspection.'))return;
+  renderSupervisorForm({id:uid(),site:'',date:dateNow(),inspector:'',answers:{},comments:{},photos:{},additionalComments:'',additionalPhotos:[]});
+}
+function editSupervisorInspection(id){
+  if(!requirePermission('supervisor.manage','You do not have permission to edit supervisor site inspections.'))return;
+  const s=(state.supervisorInspections||[]).find(x=>String(x.id)===String(id));
+  if(!s){toast('Supervisor inspection not found');return}
+  renderSupervisorForm(JSON.parse(JSON.stringify(s)));
+}
+function captureSupervisorFormFields(){
+  const s=supervisorCurrent;if(!s)return;
+  const siteEl=document.getElementById('supSite'),dateEl=document.getElementById('supDate'),nameEl=document.getElementById('supInspector'),additionalEl=document.getElementById('supAdditionalComments');
+  if(siteEl)s.site=siteEl.value;
+  if(dateEl)s.date=dateEl.value;
+  if(nameEl)s.inspector=nameEl.value;
+  if(additionalEl)s.additionalComments=additionalEl.value;
+  document.querySelectorAll('[data-sup-comment]').forEach(el=>{s.comments??={};s.comments[el.dataset.supComment]=el.value});
+}
+function renderSupervisorForm(s){
+  supervisorCurrent=s;current=null;currentModule='supervisor-form';
+  s.answers??={};s.comments??={};s.photos??={};s.additionalPhotos??=[];
+  setHeader('Supervisor Weekly Safety Check','Weekly site inspection • '+(ROLE_LABELS[currentRole]||currentRole));
+  const questions=SUPERVISOR_QUESTIONS.map((q,i)=>{
+    const key='q'+(i+1),a=s.answers[key]||'',photos=s.photos[key]||[];
+    return `<div class="check supervisor-question ${['Yes','No','N/A'].includes(a)?'':'required-missing'}" id="sup-question-${key}">
+      <h3>${i+1}. ${esc(q)}</h3>
+      <div class="choices">
+        <button type="button" class="${a==='Yes'?'sel-ok':''}" onclick="setSupervisorAnswer('${key}','Yes',this)">Yes</button>
+        <button type="button" class="${a==='No'?'sel-def':''}" onclick="setSupervisorAnswer('${key}','No',this)">No</button>
+        <button type="button" class="${a==='N/A'?'sel-na':''}" onclick="setSupervisorAnswer('${key}','N/A',this)">N/A</button>
+      </div>
+      <label style="display:block;margin-top:10px">Comments<textarea data-sup-comment="${key}" placeholder="Comments / actions / risks">${esc(s.comments[key]||'')}</textarea></label>
+      <div class="supervisor-photo-actions">
+        <button type="button" onclick="document.getElementById('sup-file-${key}').click()">📁 Add photo from file</button>
+        <button type="button" onclick="document.getElementById('sup-camera-${key}').click()">📷 Take photo</button>
+        <input id="sup-file-${key}" type="file" accept="image/*" multiple style="display:none" onchange="supervisorAddPhotos('${key}',this.files)">
+        <input id="sup-camera-${key}" type="file" accept="image/*" capture="environment" multiple style="display:none" onchange="supervisorAddPhotos('${key}',this.files)">
+      </div>
+      <div class="photo-preview">${photos.map((src,n)=>`<img class="photo-thumb" src="${src}" alt="Question ${i+1} photo ${n+1}" onclick="openPhotoActions(this.src)">`).join('')}</div>
+    </div>`;
+  }).join('');
+  const additional=(s.additionalPhotos||[]);
+  document.getElementById('app').innerHTML=`
+    <div class="nav"><button onclick="openSupervisorDashboard()">← Supervisor Dashboard</button><button onclick="portalHome()">DGS App Home</button><button class="danger" onclick="signOut()">↩ Return to login</button></div>
+    <div class="card dashboard-brand"><img src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><div><h2>Supervisor's Weekly Safety Check</h2><div class="muted">Complete once per week for each site.</div></div></div>
+    <div class="card"><div class="grid">
+      <label>Project / Site<select id="supSite" class="${s.site?'':'required-missing'}" onchange="handleSupervisorSiteChange(this)">${supervisorSiteOptions(s.site||'')}</select></label>
+      <label>Inspection date<input id="supDate" type="date" class="${s.date?'':'required-missing'}" value="${esc(s.date||dateNow())}" onchange="this.classList.toggle('required-missing',!this.value)"></label>
+      <label style="grid-column:1/-1">Supervisor name<input id="supInspector" class="${String(s.inspector||'').trim()?'':'required-missing'}" value="${esc(s.inspector||'')}" placeholder="Supervisor name" oninput="this.classList.toggle('required-missing',!this.value.trim())"></label>
+    </div></div>
+    <div class="card"><h2>Supervisor Weekly Safety Check</h2><p class="muted">Select Yes, No or N/A for each item. Add comments and photographs where needed.</p>${questions}</div>
+    <div class="card"><h2>Comments / New risks identified</h2><textarea id="supAdditionalComments" placeholder="Additional comments or new risks identified">${esc(s.additionalComments||'')}</textarea><div class="supervisor-photo-actions"><button type="button" onclick="document.getElementById('supAdditionalFile').click()">📁 Add photo from file</button><button type="button" onclick="document.getElementById('supAdditionalCamera').click()">📷 Take photo</button><input id="supAdditionalFile" type="file" accept="image/*" multiple style="display:none" onchange="supervisorAddPhotos('__additional__',this.files)"><input id="supAdditionalCamera" type="file" accept="image/*" capture="environment" multiple style="display:none" onchange="supervisorAddPhotos('__additional__',this.files)"></div><div class="photo-preview">${additional.map((src,n)=>`<img class="photo-thumb" src="${src}" alt="Additional site photo ${n+1}" onclick="openPhotoActions(this.src)">`).join('')}</div></div>
+    ${s._pendingSync?'<div class="statusbox">This inspection is saved on this device and is waiting to sync to the shared database.</div>':''}
+    <div class="card"><div class="actions"><button class="primary" onclick="saveSupervisorInspection()">Save weekly inspection</button><button onclick="openSupervisorDashboard()">Cancel / return</button></div></div>
+  `;
+}
+function setSupervisorAnswer(key,value,btn){
+  if(!supervisorCurrent)return;
+  supervisorCurrent.answers??={};supervisorCurrent.answers[key]=value;
+  const card=btn.closest('.supervisor-question');card?.classList.remove('required-missing');
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel-ok','sel-def','sel-na'));
+  btn.classList.add(value==='Yes'?'sel-ok':value==='No'?'sel-def':'sel-na');
+}
+function supervisorAddPhotos(key,files){
+  if(!supervisorCurrent||!files?.length)return;
+  captureSupervisorFormFields();
+  if(key==='__additional__')supervisorCurrent.additionalPhotos??=[];
+  else {supervisorCurrent.photos??={};supervisorCurrent.photos[key]??=[]}
+  const list=[...files];let remaining=list.length,added=0,failed=0;
+  const finish=()=>{
+    if(remaining<=0){
+      renderSupervisorForm(supervisorCurrent);
+      if(failed&&added===0)toast('Photo could not be processed on this device. Try another photo or select a JPEG image.');
+      else if(added)toast(`${added} photo${added===1?'':'s'} added`);
+    }
+  };
+  list.forEach(file=>{
+    const isImage=(file.type||'').startsWith('image/')||/\.(jpe?g|png|webp|gif)$/i.test(file.name||'');
+    if(!isImage){failed++;remaining--;finish();return}
+    const reader=new FileReader();reader.onerror=()=>{failed++;remaining--;finish()};
+    reader.onload=e=>compressPhoto(e.target.result,src=>{if(key==='__additional__')supervisorCurrent.additionalPhotos.push(src);else supervisorCurrent.photos[key].push(src);added++;remaining--;finish()},()=>{failed++;remaining--;finish()});
+    reader.readAsDataURL(file);
+  });
+}
+async function saveSupervisorInspection(){
+  if(!requirePermission('supervisor.manage','You do not have permission to save supervisor site inspections.'))return;
+  captureSupervisorFormFields();
+  const s=supervisorCurrent;if(!s)return;
+  const siteEl=document.getElementById('supSite'),dateEl=document.getElementById('supDate'),nameEl=document.getElementById('supInspector');
+  let valid=true;
+  [[siteEl,!!s.site,'Please select a site'],[dateEl,!!s.date,'Please enter the inspection date'],[nameEl,!!String(s.inspector||'').trim(),'Please enter the supervisor name']].forEach(([el,ok,msg])=>{
+    if(!ok){el?.classList.add('required-missing');el?.focus?.();valid=false}
+    else el?.classList.remove('required-missing');
+  });
+  const missing=SUPERVISOR_QUESTIONS.findIndex((_,i)=>!['Yes','No','N/A'].includes(s.answers['q'+(i+1)]||''));
+  if(missing>=0){const q=document.getElementById('sup-question-q'+(missing+1));q?.classList.add('required-missing');q?.scrollIntoView({behavior:'smooth',block:'center'});q?.querySelector('.choices button')?.focus();toast('Please answer all 16 questions with Yes, No or N/A');return}
+  if(!valid){toast('Please complete the required site, date and supervisor name fields');return}
+  s.updatedAt=new Date().toISOString();
+  const idx=(state.supervisorInspections||[]).findIndex(x=>String(x.id)===String(s.id));
+  if(idx>=0)state.supervisorInspections[idx]=s;else state.supervisorInspections.push(s);
+  if(centralEnabled){
+    try{
+      await syncSupervisorInspectionToCloud(s);
+      delete s._pendingSync;supervisorTableError='';
+      saveLocal();toast('Weekly supervisor inspection saved and synced');
+    }catch(e){
+      s._pendingSync=true;saveLocal();supervisorTableError=e?.message||String(e);
+      console.warn('Supervisor inspection sync failed',e);
+      toast('Inspection saved on this device but not synced: '+(e?.message||e));
+    }
+  }else{
+    s._pendingSync=true;saveLocal();toast('Inspection saved on this device only. Shared database is not configured.');
+  }
+  openSupervisorDashboard();
+}
+function supervisorReport(){
+  if(!requirePermission('reports.view','Reports are not available for this access level.'))return;
+  const sites=[...new Set([...siteNames(),...(state.supervisorInspections||[]).map(s=>s.site).filter(Boolean)])].sort((a,b)=>String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}));
+  document.getElementById('app').innerHTML=`
+    <div class="nav no-print"><button onclick="openSupervisorDashboard()">← Supervisor Dashboard</button><button onclick="portalHome()">DGS App Home</button><button class="danger" onclick="signOut()">↩ Return to login</button></div>
+    <div class="card no-print"><h2>Supervisor Weekly Safety Report</h2><div class="grid"><label>Site<select id="supReportSite"><option value="">All sites</option>${sites.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('')}</select></label><label>From date<input id="supReportFrom" type="date" value="${new Date(Date.now()-28*864e5).toISOString().slice(0,10)}"></label><label>To date<input id="supReportTo" type="date" value="${dateNow()}"></label></div><div class="actions" style="margin-top:10px"><button class="primary" onclick="buildSupervisorReport()">Generate report</button></div></div>
+    <div class="card no-print"><h3>Email recipients</h3><p class="muted">Select recipients for the report or add another email address.</p><div id="reportRecipients" class="email-grid">${state.recipients.map((r,i)=>`<div class="recipient"><label><input type="checkbox" data-report-r="${i}"> ${esc(r[0])}</label><div class="mini">${esc(r[1])}</div></div>`).join('')}</div><div class="actions" style="margin-top:10px"><button onclick="selectAllReportRecipients(true)">Select all</button><button onclick="selectAllReportRecipients(false)">Clear all</button></div><hr><h3>Add new email</h3><div class="grid"><label>Name<input id="reportNewName" placeholder="Name"></label><label>Email<input id="reportNewEmail" type="email" placeholder="email@example.com"></label></div><button style="margin-top:10px" onclick="addReportRecipient()">Add new email</button></div>
+    <div id="supervisorReportOut"></div>`;
+}
+function buildSupervisorReport(){
+  const site=document.getElementById('supReportSite')?.value||'',from=document.getElementById('supReportFrom')?.value||'',to=document.getElementById('supReportTo')?.value||'';
+  if(from&&to&&from>to){toast('From date must be before To date');return}
+  const rows=(state.supervisorInspections||[]).filter(s=>(!site||s.site===site)&&(!from||s.date>=from)&&(!to||s.date<=to)).sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
+  window.supervisorReportRows=rows;
+  let html=`<div class="report"><div class="report-brand"><img src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><h1>DGS Supervisor Weekly Safety Inspection Report</h1></div><p><strong>Period:</strong> ${esc(from||'Any date')} to ${esc(to||'Any date')}</p>${site?`<p><strong>Site:</strong> ${esc(site)}</p>`:''}`;
+  if(!rows.length)html+='<p>No supervisor inspections found for the selected site and date range.</p>';
+  rows.forEach((s,ri)=>{
+    html+=`<div class="pagebreak"><h2>${esc(s.site||'Site not recorded')}</h2><p><strong>Inspection date:</strong> ${esc(s.date||'')} &nbsp; <strong>Supervisor:</strong> ${esc(s.inspector||'')}</p><table class="supervisor-report-table"><thead><tr><th style="width:5%">No.</th><th>Question</th><th style="width:12%">Answer</th><th>Comments</th></tr></thead><tbody>`;
+    SUPERVISOR_QUESTIONS.forEach((q,i)=>{
+      const key='q'+(i+1);html+=`<tr><td>${i+1}</td><td>${esc(q)}</td><td>${esc(s.answers?.[key]||'')}</td><td>${esc(s.comments?.[key]||'')}</td></tr>`;
+    });
+    html+='</tbody></table>';
+    if(s.additionalComments)html+=`<p><strong>Comments / New risks identified:</strong><br>${esc(s.additionalComments).replace(/\n/g,'<br>')}</p>`;
+    const photoEntries=[];
+    SUPERVISOR_QUESTIONS.forEach((q,i)=>(s.photos?.['q'+(i+1)]||[]).forEach((src,n)=>photoEntries.push({label:`Question ${i+1}`,src})));
+    (s.additionalPhotos||[]).forEach(src=>photoEntries.push({label:'Additional site photo',src}));
+    if(photoEntries.length)html+=`<h3>Photographs</h3><div class="photo-preview">${photoEntries.map(ph=>`<div style="display:inline-block;vertical-align:top;margin:5px"><img class="photo-thumb" style="max-width:190px;max-height:150px" src="${ph.src}" alt="${esc(ph.label)}"><div class="mini">${esc(ph.label)}</div></div>`).join('')}</div>`;
+    html+='</div>';
+  });
+  html+=`<div class="no-print" style="margin-top:20px"><button class="primary" onclick="window.print()">Print / Save as PDF</button> <button onclick="emailSupervisorReport()">Email selected recipients</button></div></div>`;
+  const out=document.getElementById('supervisorReportOut');if(out)out.innerHTML=html;
+}
+function emailSupervisorReport(){
+  const ids=[...document.querySelectorAll('[data-report-r]:checked')].map(x=>state.recipients[Number(x.dataset.reportR)]?.[1]).filter(Boolean);
+  if(!ids.length){toast('Select at least one recipient');return}
+  const rows=Array.isArray(window.supervisorReportRows)?window.supervisorReportRows:[];
+  if(!rows.length){toast('Generate a report containing at least one inspection first');return}
+  const bodyLines=['DGS SUPERVISOR WEEKLY SAFETY CHECK',''];
+  rows.forEach(s=>{
+    bodyLines.push(`Site: ${s.site||'Site not recorded'}`,`Date: ${s.date||''}`,`Supervisor: ${s.inspector||''}`);
+    SUPERVISOR_QUESTIONS.forEach((q,i)=>{
+      const k='q'+(i+1), answer=s.answers?.[k]||'Not answered', comment=s.comments?.[k]||'';
+      bodyLines.push(`${i+1}. ${q}`,`Answer: ${answer}${comment?` — Comments: ${comment}`:''}`);
+    });
+    if(s.additionalComments)bodyLines.push(`Additional comments / new risks: ${s.additionalComments}`);
+    if((s.additionalPhotos||[]).length||Object.values(s.photos||{}).some(a=>a?.length))bodyLines.push('Photographs are included in the printable/PDF report; attach the PDF separately if required.');
+    bodyLines.push('','----------------------------------------','');
+  });
+  const recipients=[...new Set(ids.map(v=>String(v||'').replace(/[\r\n;]/g,'').trim()).filter(Boolean))];
+  const to=recipients.join('; ');
+  const subject=encodeURIComponent('DGS SUPERVISOR WEEKLY SAFETY CHECK');
+  const body=encodeURIComponent(bodyLines.join('\n'));
+  window.location.href=`mailto:${to}?subject=${subject}&body=${body}`;
+}
+
+function openModule(module){
+  if(module==='supervisor'){openSupervisorDashboard();return}
+  const map={hire:['hire.view','Plant On Hire / Off Hire','Manage plant hire status and movements between projects.']};
+  const x=map[module];if(!x)return;if(!requirePermission(x[0]))return;
+  currentModule='module';setHeader('DGS App',x[1]);
+  document.getElementById('app').innerHTML=`<div class="nav"><button onclick="portalHome()">← DGS App Home</button></div><div class="card"><h2>${esc(x[1])}</h2><p>${esc(x[2])}</p><p class="muted">Your access level is <strong>${esc(ROLE_LABELS[currentRole]||currentRole)}</strong>. This module can be connected to its full app separately.</p></div>`;
+}
+
+function esc(s=''){s=String(s??'');return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function toast(t){const x=document.getElementById('toast');x.textContent=t;x.style.display='block';setTimeout(()=>x.style.display='none',2600)}
+function dateNow(){return new Date().toISOString().slice(0,10)} function timeNow(){return new Date().toTimeString().slice(0,5)}
+let current=null;
+function appHome(){
+  if(!requirePermission('puwer.view')){portalHome();return}
+  currentModule='puwer';
+  setHeader('DGS PUWER Plant Checks','Daily plant inspections • '+(ROLE_LABELS[currentRole]||currentRole));
+  const addBtn=can('plant.manage')?'<button onclick="newPlant()">+ Add plant</button>':(can('plant.hire.add')?'<button onclick="newPlant(\'Hired Plant\')">+ Add hired plant</button>':'');
+  document.getElementById('app').innerHTML=`<div class="nav"><button class="primary" onclick="appHome()">PUWER Dashboard</button><button onclick="portalHome()">DGS App Home</button>${addBtn}<button onclick="refreshCloud().then(()=>renderDashboard())">↻ Refresh shared data</button><button class="danger" onclick="signOut()">↩ Return to login</button></div><div class="card dashboard-brand"><img src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><div><h2>DGS PUWER Plant Checks</h2><div class="muted">Daily plant inspections, defects and reporting.</div></div></div><div class="card"><h2>Filter plant</h2><div class="grid"><label>Site name<select id="dashSiteFilter" onchange="renderDashboard()"><option value="">All sites</option></select></label><label>Fleet number / name<select id="dashFleetFilter" onchange="renderDashboard()"><option value="">All plant</option></select></label></div><div class="actions" style="margin-top:10px"><button onclick="clearDashboardFilters()">Clear filters</button></div></div><div class="card"><h2>Today's inspections</h2><div id="todayList"></div></div>${currentRole==='operator'?'':'<div class="card"><h2>Active plant</h2><div id="plantList"></div></div>'}<div class="card" ${can('reports.view')?'':'style="display:none"'}><h2>Send report</h2><p class="muted">Choose a plant and date range to create a combined report from completed daily inspections.</p><button class="primary" onclick="weeklyReport()">Send report</button></div>`;
+  populateDashboardFilters();renderDashboard();
+}
+function populateDashboardFilters(){const siteEl=document.getElementById('dashSiteFilter'),fleetEl=document.getElementById('dashFleetFilter');if(!siteEl||!fleetEl)return;const currentSite=siteEl.value,currentFleet=fleetEl.value;const today=dateNow();const sites=[...new Set([...state.plants.map(p=>p.site),...state.inspections.filter(i=>i.date===today).map(i=>i.details?.site)].filter(Boolean).map(String))].sort((a,b)=>String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}));const fleets=[...new Set(state.plants.map(p=>p.name).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}));siteEl.innerHTML='<option value="">All sites</option>'+sites.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');fleetEl.innerHTML='<option value="">All plant</option>'+fleets.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('');if(sites.includes(currentSite))siteEl.value=currentSite;if(fleets.includes(currentFleet))fleetEl.value=currentFleet}
+function clearDashboardFilters(){const s=document.getElementById('dashSiteFilter'),f=document.getElementById('dashFleetFilter');if(s)s.value='';if(f)f.value='';renderDashboard()}
+function statusClass(status){if(status==='Fit for use')return 'status-fit';if(status==='Fit for use with recorded minor defect(s)')return 'status-minor';if(status==='Do not use — isolated / quarantined' || status==='Do not use')return 'status-do-not-use';return 'due'}
+function repairStatusClass(status){return status==='Repair Complete'?'repair-complete':status==='Repair outstanding'?'repair-outstanding':'repair-due'}
+function repairBadgeHTML(status){if(status==='Repair Complete')return '<span class="pill repair-complete">Repair Complete</span>';if(status==='Repair outstanding')return '<span class="pill repair-outstanding">Repair outstanding</span>';return ''}
+function renderDashboard(){const site=(document.getElementById('dashSiteFilter')?.value||'').trim();const fleet=(document.getElementById('dashFleetFilter')?.value||'').trim();const t=dateNow();const completed=state.inspections.filter(x=>x.date===t);const effectiveSite=p=>{const i=completed.find(x=>x.plantId===p.id);return i?.details?.site||p.site||''};const matches=p=>(!site||String(effectiveSite(p))===site)&&(!fleet||String(p.name||'')===fleet);const tl=document.getElementById('todayList');const today=(list)=>state.plants.filter(p=>(p.list||'DGS Plant')===list&&matches(p)).map(p=>{const i=completed.find(x=>x.plantId===p.id);const shownSite=i?.details?.site||p.site||'';return `<div class="dayrow"><div><strong>${esc(p.name||p.make+' '+p.model)}</strong><div class="mini">${esc(p.type)}</div><div class="mini">${esc(shownSite)}</div></div><div>${i?`<span class="pill ${statusClass(i.status)}">${esc(i.status)}</span>${repairBadgeHTML(i.repair?.status)}<button onclick="editInspection('${i.id}')">View</button>`:`<span class="pill due">Due</span><button class="primary" onclick="newInspection('${p.id}')">Complete</button>`}</div></div>`}).join('')||'<p class="muted">No plant matches the selected filters.</p>';tl.innerHTML=`<h3>DGS Plant</h3>${today('DGS Plant')}<h3 style="margin-top:18px">Hired Plant</h3>${today('Hired Plant')}`;if(!state.plants.length){tl.innerHTML += `<div class="statusbox"><strong>No plant data is loaded.</strong><div class="mini">Use ↻ Refresh shared data. If this is a new DGS App installation, run the V44 temporary access SQL once in Supabase.</div></div>`;}const pl=document.getElementById('plantList');const section=(list)=>{const ps=state.plants.filter(p=>(p.list||'DGS Plant')===list&&matches(p));return `<h3>${list}</h3>`+(ps.length?ps.map(p=>{const ins=state.inspections.filter(i=>i.plantId===p.id).sort((a,b)=>b.date.localeCompare(a.date));return `<div class="plantrow"><div><strong>${esc(p.name||[p.make,p.model].filter(Boolean).join(' '))}</strong>${p._pendingSync?'<div class="mini" style="color:#9a6700">Pending shared sync — will retry automatically</div>':''}<div class="mini">${esc(p.type)}</div><div class="mini">${esc(effectiveSite(p))} • ${ins.length} inspection(s) stored</div></div><div class="actions">${can('plant.manage')?`<button onclick="editPlant('${p.id}')">Edit plant</button>`:''}${can('plant.manage')?`<button onclick="plantHistory('${p.id}')">History</button>`:''}<button class="primary" onclick="newInspection('${p.id}')">Today's check</button></div></div>`}).join(''):'<p class="muted">No plant matches the selected filters.</p>')};if(pl)pl.innerHTML=section('DGS Plant')+section('Hired Plant')}
+function newPlant(defaultList=''){
+  const operatorOnly=currentRole==='operator';
+  if(!can('plant.manage') && !(operatorOnly&&can('plant.hire.add'))){toast('You do not have access to add plant.');return}
+  const selectedList=operatorOnly?'Hired Plant':(defaultList||'DGS Plant');
+  document.getElementById('app').innerHTML=`<div class="nav"><button onclick="home()">← Dashboard</button></div><div class="card"><h2>Add plant</h2><div class="grid">${operatorOnly?'<label>Plant list<input value="Hired Plant" disabled></label>':`<label>Plant list<select id="plist"><option value="DGS Plant" ${selectedList==='DGS Plant'?'selected':''}>DGS Plant</option><option value="Hired Plant" ${selectedList==='Hired Plant'?'selected':''}>Hired Plant</option></select></label>`}<label>Project / Site<select id="psite" onchange="handleSiteChange(this)">${siteOptions('')}</select></label><label>Plant type<select id="ptype"><option value="">Select...</option>${Object.keys(SPEC).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true,sensitivity:'base'})).map(x=>`<option>${esc(x)}</option>`).join('')}</select></label><label>Make / Model<input id="pmodel"></label><label>Serial number<input id="pserial" placeholder="Serial number"></label><label>Fleet number / name<input id="pname" placeholder="e.g. DGS-024 PC210"></label></div><div class="actions" style="margin-top:12px"><button class="primary" onclick="savePlant()">Save plant</button></div></div>`
+}
+async function savePlant(){
+  const operatorOnly=currentRole==='operator';
+  if(operatorOnly){if(!can('plant.hire.add')){toast('You do not have access to add plant.');return}}
+  else if(!requirePermission('plant.manage'))return;
+  const list=operatorOnly?'Hired Plant':(val('plist')||'DGS Plant');
+  const p={id:uid(),list:list,name:val('pname'),type:val('ptype'),site:val('psite'),make:val('pmodel'),serial:val('pserial'),_pendingSync:true};
+  if(!p.type||!p.name){toast('Enter plant name and type');return}
+  state.plants.push(p);saveLocal();
+  if(centralEnabled){
+    const wasBusy=cloudSyncBusy;cloudSyncBusy=true;
+    try{
+      if(operatorOnly){
+        // The general sync intentionally only upserts plant rows for management roles.
+        // Operators can add hired plant, so upload that one row directly to Supabase.
+        const row={id:p.id,plant_list:'Hired Plant',site:p.site||'',plant_type:p.type||'',make_model:p.make||'',fleet_name:p.name||'',serial_number:p.serial||'',updated_at:new Date().toISOString()};
+        const {error}=await db.from('plants').upsert([row],{onConflict:'id'});
+        if(error)throw error;
+      }else{
+        await syncStateToCloud();
+      }
+      delete p._pendingSync;
+      saveLocal();
+      await loadFromCloud();
+    }catch(e){
+      console.warn('Plant shared save failed',e);
+      saveLocal();
+      toast('Plant is saved on this device but has not synced to all devices: '+(e?.message||String(e)));
+      home();
+      return;
+    }finally{cloudSyncBusy=wasBusy;}
+  }else{
+    // No central configuration: retain this record locally until cloud is configured.
+    saveLocal();
+  }
+  toast(operatorOnly?'Hired plant saved and synced':'Plant saved and synced');home()
+}
+function editPlant(pid){if(!requirePermission('plant.manage','Only Admin and Site management can edit plant.'))return;const p=state.plants.find(x=>String(x.id)===String(pid));if(!p){toast('Plant not found');return}document.getElementById('app').innerHTML=`<div class="nav"><button onclick="home()">← Dashboard</button></div><div class="card"><h2>Edit plant</h2><p class="muted">Changes here update the plant record for future inspections. Existing inspection records are not changed.</p><div class="grid"><label>Plant list<select id="plist"><option value="DGS Plant" ${p.list==='DGS Plant'?'selected':''}>DGS Plant</option><option value="Hired Plant" ${p.list==='Hired Plant'?'selected':''}>Hired Plant</option></select></label><label>Project / Site<select id="psite" onchange="handleSiteChange(this)">${siteOptions(p.site)}</select></label><label>Plant type<select id="ptype"><option value="">Select...</option>${Object.keys(SPEC).sort((a,b)=>a.localeCompare(b,undefined,{numeric:true,sensitivity:'base'})).map(x=>`<option ${x===p.type?'selected':''}>${esc(x)}</option>`).join('')}</select></label><label>Make / Model<input id="pmodel" value="${esc(p.make||'')}"></label><label>Serial number<input id="pserial" value="${esc(p.serial||'')}" placeholder="Serial number"></label><label>Fleet number / name<input id="pname" value="${esc(p.name||'')}" placeholder="e.g. DGS-024 PC210"></label></div><div class="actions" style="margin-top:12px"><button class="primary" onclick="saveEditedPlant('${p.id}')">Save changes</button><button onclick="home()">Cancel</button></div></div>`}
+async function saveEditedPlant(pid){if(!requirePermission('plant.manage'))return;const p=state.plants.find(x=>String(x.id)===String(pid));if(!p){toast('Plant not found');return}const type=val('ptype'),name=val('pname');if(!type||!name){toast('Enter plant name and type');return}p.list=val('plist')||'DGS Plant';p.name=name;p.type=type;p.site=val('psite');p.make=val('pmodel');p.serial=val('pserial');saveLocal();if(centralEnabled){try{await syncStateToCloud()}catch(e){console.warn(e);toast('Changes saved locally; shared database sync failed');return}}toast('Plant changes saved');home()}
+function val(id){return document.getElementById(id)?.value.trim()||''}
+function siteNames(){const a=state.plants.map(p=>p.site).filter(Boolean),b=state.inspections.map(i=>i.details?.site).filter(Boolean),c=(state.supervisorInspections||[]).map(i=>i.site).filter(Boolean);return [...new Set([...a,...b,...c].map(String))].sort((x,y)=>x.localeCompare(y,undefined,{numeric:true,sensitivity:'base'}));}
+function siteOptions(selected=''){return '<option value="">Select site...</option>'+siteNames().map(x=>`<option value="${esc(x)}" ${String(x)===String(selected)?'selected':''}>${esc(x)}</option>`).join('')+'<option value="__ADD_NEW_SITE__">＋ Add new project / site...</option>'}
+function handleSiteChange(el){if(!el||el.value!=='__ADD_NEW_SITE__')return;const name=window.prompt('Enter the new project / site name:','');if(name===null){el.value='';return}const site=String(name).trim();if(!site){toast('Enter a project / site name');el.value='';return}const existing=siteNames().find(x=>String(x).toLowerCase()===site.toLowerCase());if(existing){el.value=existing;toast('Existing project / site selected');return}const opt=document.createElement('option');opt.value=site;opt.textContent=site;el.insertBefore(opt,el.lastElementChild);el.value=site;toast('New project / site added — save the inspection to keep it for future use')}
+function newInspection(pid){try{const p=state.plants.find(x=>String(x.id)===String(pid));if(!p){toast('Plant not found — please return to the dashboard and try again');return}const existing=state.inspections.find(x=>String(x.plantId)===String(pid)&&x.date===dateNow());if(existing){editInspection(existing.id);return}renderForm({id:uid(),plantId:p.id,date:dateNow(),time:timeNow(),createdBy:currentUser?.id||'',details:{site:p.site||'',plantType:p.type||'',make:p.make||'',fleet:p.name||'',serial:'',operator:'',supervisor:''},checks:UNIVERSAL.map(()=>''),spec:'',comments:{},defects:[],status:'',operatorSig:'',supervisorSig:'',repair:{}})}catch(e){console.error(e);toast("Could not open today's check: "+e.message)}}
+function renderForm(d){
+  current=d;
+  d.checkPhotos??={};
+  d.comments??={};
+  d.details??={};
+  d.repair??={};
+  const p=state.plants.find(x=>x.id===d.plantId);
+  if(!p){toast('Plant not found');home();return}
+  const operatorOnly=currentRole==='operator';
+  const defectSection=operatorOnly?'':`<div class="card"><h2>Defects, Isolation & Corrective Action</h2><p class="muted">Defects selected during the inspection are automatically added below. You can add or edit additional details.</p><div id="defects">${(d.defects?.length?d.defects:[]).map((x,i)=>defectHTML(x,i)).join('')}</div><button onclick="addDefect()">+ Add defect</button></div>`;
+  const supervisorSection=operatorOnly?'':`<h3>Supervisor / authorised person</h3><input id="supname" placeholder="Name" value="${esc(d.details.supervisor||'')}"><h3>Repair close-out</h3><div class="grid"><label>Released by<select id="released">${recipientOptions(d.repair?.released||'')}</select></label><label>Date/time<input id="releasedtime" type="datetime-local" value="${esc(d.repair?.time||'')}"></label><label>Repair status<select id="repairstatus" class="${repairStatusClass(d.repair?.status||'')}" onchange="this.className=repairStatusClass(this.value)"><option value="">Select...</option><option value="Repair outstanding" ${d.repair?.status==='Repair outstanding'?'selected':''}>Repair outstanding</option><option value="Repair Complete" ${d.repair?.status==='Repair Complete'?'selected':''}>Repair Complete</option></select></label></div>`;
+  document.getElementById('app').innerHTML=`<div class="nav"><button onclick="home()">← Dashboard</button></div><div class="card"><h2>PUWER Daily Inspection</h2><div class="statusbox"><strong>${esc(p.name)}</strong><br><span class="muted">${esc(d.date)} ${esc(d.time)} • ${esc(p.type)}</span></div><div class="grid"><label>Project / Site<select id="site" onchange="handleSiteChange(this)">${siteOptions(d.details.site||'')}</select></label><label>Date<input id="date" type="date" value="${esc(d.date)}"></label><label>Time<input id="time" type="time" value="${esc(d.time)}"></label><label>Plant type<input value="${esc(d.details.plantType)}" disabled></label><label>Make / Model<input id="make" value="${esc(d.details.make)}"></label><label>Serial number<input id="serial" value="${esc(d.details.serial||p.serial||'')}"></label><label>Engine hours / Odometer<input id="hours" value="${esc(d.details.hours||'')}"></label></div></div><div class="card"><h2>Universal Pre-use Inspection</h2><p class="muted">Mark each item OK, Defect or N/A. If Defect is selected, add a comment and attach photos if required.</p>${UNIVERSAL.map((q,i)=>checkHTML(i,q,d.checks[i],d.comments['u'+i]||'',true)).join('')}</div><div class="card"><h2>Plant-specific check</h2><p><strong>${esc(p.type)}</strong></p>${checkHTML(100,SPEC[p.type]||'Plant-specific check',d.spec,d.comments.spec||'',false)}</div>${defectSection}<div class="card"><h2>Inspection Outcome & Sign-off</h2><label>Plant status<select id="status" required class="${d.status?'':'required-missing'}" onchange="this.classList.toggle('required-missing',!this.value)"><option value="">Select...</option><option ${d.status==='Fit for use'?'selected':''}>Fit for use</option><option ${d.status==='Fit for use with recorded minor defect(s)'?'selected':''}>Fit for use with recorded minor defect(s)</option><option value="Do not use" ${d.status==='Do not use'?'selected':''}>Do not use — isolated / quarantined</option></select></label><h3>Operator declaration</h3><p class="muted">I have completed the applicable checks and reported all defects.</p><label>Operator name<input id="opname" required aria-label="Operator name" class="${String(d.details.operator||'').trim()?'':'required-missing'}" placeholder="Operator name" value="${esc(d.details.operator||'')}" oninput="this.classList.toggle('required-missing',!this.value.trim())"></label>${supervisorSection}</div><div class="card"><div class="actions"><button class="primary" onclick="saveInspection()">Save daily inspection</button><button onclick="saveAndNew()">Save & return</button></div></div>`;
+  // Signature panels removed; names are retained as text fields only.
+}
+function checkHTML(i,q,v,comment,univ){const key=univ?'u'+i:'spec';const photos=current?.checkPhotos?.[key]||[];return `<div class="check ${['OK','Defect','N/A'].includes(v)?'':'required-missing'}"><div class="checkhead"><div class="num">${univ?i+1:'P'}</div><div>${esc(q)}</div></div><div class="choices"><button class="${v==='OK'?'sel-ok':''}" onclick="setCheck('${key}','OK',this)">OK</button><button class="${v==='Defect'?'sel-def':''}" onclick="setCheck('${key}','Defect',this)">Defect</button><button class="${v==='N/A'?'sel-na':''}" onclick="setCheck('${key}','N/A',this)">N/A</button></div><textarea placeholder="Comments / defect reference" data-comment="${key}" ${v==='Defect'?'':'style="display:none"'}>${esc(comment)}</textarea><div id="photos-${key}" class="${v==='Defect'?'':'hidden'}"><div class="photo-actions"><button type="button" onclick="document.getElementById('file-${key}').click()">📁 Add photo from file</button><button type="button" onclick="document.getElementById('camera-${key}').click()">📷 Take photo</button><input id="file-${key}" type="file" accept="image/*" multiple style="display:none" onchange="addCheckPhotos('${key}',this.files)"><input id="camera-${key}" type="file" accept="image/*" capture="environment" style="display:none" onchange="addCheckPhotos('${key}',this.files)"></div><div class="photo-preview">${photos.map((src,n)=>`<img class="photo-thumb" src="${src}" alt="Defect photo ${n+1}" onclick="openPhotoActions(this.src)">`).join('')}</div></div></div>`}
+function setCheck(key,v,btn){if(key==='spec')current.spec=v;else current.checks[Number(key.slice(1))]=v;btn.parentElement.parentElement.classList.remove('required-missing');current.checkPhotos??={};current.comments??={};const c=btn.parentElement.parentElement.querySelector('textarea');c.style.display=v==='Defect'?'block':'none';const photoBox=btn.parentElement.parentElement.querySelector('#photos-'+key);if(photoBox)photoBox.classList.toggle('hidden',v!=='Defect');if(v!=='Defect'){c.value='';delete current.checkPhotos[key]}current.comments[key]=c.value;btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel-ok','sel-def','sel-na'));btn.classList.add(v==='OK'?'sel-ok':v==='Defect'?'sel-def':'sel-na');syncDefectsFromChecks();refreshDefects()}
+function addCheckPhotos(key,files){
+  if(!files?.length)return;
+  current.checkPhotos??={};current.checkPhotos[key]??=[];
+  const list=[...files];
+  let remaining=list.length,added=0,failed=0;
+  const finish=()=>{if(remaining<=0){renderForm(current);if(failed&&added===0)toast('Photo could not be processed on this device. Please try taking the photo again or choose a JPEG image.')}};
+  list.forEach(file=>{
+    const looksLikeImage=(file.type||'').startsWith('image/')||/\.(jpe?g|png|webp|gif)$/i.test(file.name||'');
+    if(!looksLikeImage){failed++;remaining--;finish();return}
+    const r=new FileReader();
+    r.onerror=()=>{failed++;remaining--;finish()};
+    r.onload=e=>{compressPhoto(e.target.result,src=>{current.checkPhotos[key].push(src);added++;remaining--;finish()},()=>{failed++;remaining--;finish()})};
+    r.readAsDataURL(file);
+  });
+}
+function compressPhoto(data,done,fail){
+  const img=new Image();
+  img.decoding='async';
+  img.onload=()=>{
+    try{
+      const max=960;
+      const scale=Math.min(1,max/Math.max(img.naturalWidth||img.width,img.naturalHeight||img.height));
+      const c=document.createElement('canvas');
+      c.width=Math.max(1,Math.round((img.naturalWidth||img.width)*scale));
+      c.height=Math.max(1,Math.round((img.naturalHeight||img.height)*scale));
+      const ctx=c.getContext('2d',{alpha:false});
+      if(!ctx)throw new Error('Canvas unavailable');
+      ctx.drawImage(img,0,0,c.width,c.height);
+      c.toBlob(blob=>{
+        if(!blob){fail?.();return}
+        const fr=new FileReader();
+        fr.onerror=()=>fail?.();
+        fr.onload=()=>done(fr.result);
+        fr.readAsDataURL(blob);
+      },'image/jpeg',0.58);
+    }catch(e){console.warn('Photo compression failed',e);fail?.()}
+  };
+  img.onerror=()=>{console.warn('Image decode failed');fail?.()};
+  img.src=data;
+}
+function syncDefectsFromChecks(){current.defects??=[];const keys=[...UNIVERSAL.map((q,i)=>({key:'u'+i,text:q})),{key:'spec',text:SPEC[state.plants.find(x=>x.id===current.plantId)?.type]||'Plant-specific check'}];const active=new Set();keys.forEach((x,idx)=>{const result=x.key==='spec'?current.spec:current.checks[Number(x.key.slice(1))];if(result==='Defect'){active.add(x.key);const comment=current.comments?.[x.key]||'';let item=current.defects.find(z=>z.autoKey===x.key);if(!item){item={ref:current.defects.length+1,defect:'',action:'',reported:'',target:'',closed:'',autoKey:x.key,photos:[]};current.defects.push(item)}item.defect=comment||x.text;item.photos=current.checkPhotos?.[x.key]||[]}});current.defects=current.defects.filter(x=>!x.autoKey||active.has(x.autoKey))}
+function refreshDefects(){const el=document.getElementById('defects');if(!el)return;el.innerHTML=(current.defects||[]).map((x,i)=>defectHTML(x,i)).join('')}
+function recipientOptions(selected){const vals=[...(state.recipients||DEFAULT_RECIPIENTS)];if(selected && !vals.some(r=>r[1]===selected)) vals.push(['Custom',selected]);return `<option value="">Select...</option>`+vals.map(([name,email])=>`<option value="${esc(email)}" ${email===selected?'selected':''}>${esc(name)} — ${esc(email)}</option>`).join('')}
+function defectHTML(x,i){const photos=x.photos||[];return `<div class="check"><div class="grid"><label>Ref<input data-d="ref" value="${esc(x.ref||i+1)}"></label><label>Defect / observation<input data-d="defect" value="${esc(x.defect||'')}"></label><label>Immediate action / isolation<input data-d="action" value="${esc(x.action||'')}"></label><label>Reported to<select data-d="reported">${recipientOptions(x.reported||'')}</select></label><label>Target / completion<input data-d="target" type="date" value="${esc(x.target||'')}"></label><label>Closed by<select data-d="closed">${recipientOptions(x.closed||'')}</select></label></div>${photos.length?`<div class="photo-preview">${photos.map((src,n)=>`<img class="photo-thumb" src="${src}" alt="Defect photo ${n+1}" onclick="openPhotoActions(this.src)">`).join('')}</div>`:''}</div>`}
+function addDefect(){current.defects??=[];current.defects.push({ref:current.defects.length+1,defect:'',action:'',reported:'',target:'',closed:'',photos:[]});refreshDefects()}
+function setupSig(id,data){const c=document.getElementById(id),ctx=c.getContext('2d');let drawing=false,last;function pos(e){const r=c.getBoundingClientRect();const t=e.touches?.[0]||e;return{x:(t.clientX-r.left)*c.width/r.width,y:(t.clientY-r.top)*c.height/r.height}};if(data){const img=new Image();img.onload=()=>ctx.drawImage(img,0,0);img.src=data}const start=e=>{drawing=true;last=pos(e);e.preventDefault()},move=e=>{if(!drawing)return;const p=pos(e);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.lineWidth=2;ctx.lineCap='round';ctx.stroke();last=p;e.preventDefault()},end=()=>{drawing=false};c.onmousedown=start;c.onmousemove=move;c.onmouseup=end;c.onmouseleave=end;c.ontouchstart=start;c.ontouchmove=move;c.ontouchend=end}
+function clearSig(id){const c=document.getElementById(id);c.getContext('2d').clearRect(0,0,c.width,c.height);if(id==='opsig')current.operatorSig='';else current.supervisorSig=''}
+async function saveInspection(){
+  if(!requirePermission('puwer.inspect'))return;
+  const d=current;
+  const statusEl=document.getElementById('status');
+  const operatorNameEl=document.getElementById('opname');
+  const selectedStatus=val('status');
+  const validResults=new Set(['OK','Defect','N/A']);
+  const missingUniversal=UNIVERSAL.findIndex((_,i)=>!validResults.has(d.checks?.[i]||''));
+  const missingSpecific=!validResults.has(d.spec||'');
+  if(missingUniversal>=0 || missingSpecific){
+    const target=missingUniversal>=0?document.querySelectorAll('.card .check')[missingUniversal]:document.querySelector('.card .check.required-missing');
+    toast('Please select OK, Defect or N/A for every inspection question before saving');
+    target?.scrollIntoView({behavior:'smooth',block:'center'});
+    target?.querySelector('.choices button')?.focus();
+    return;
+  }
+  if(!selectedStatus){statusEl?.classList.add('required-missing');toast('Please select the plant status before saving the inspection');statusEl?.focus();statusEl?.scrollIntoView({behavior:'smooth',block:'center'});return}
+  if(!operatorNameEl?.value.trim()){operatorNameEl?.classList.add('required-missing');toast('Please enter the operator name before saving the inspection');operatorNameEl?.focus();operatorNameEl?.scrollIntoView({behavior:'smooth',block:'center'});return}
+  if(!d.createdBy && currentUser?.id && !localAccessMode)d.createdBy=currentUser.id;
+  const p=state.plants.find(x=>String(x.id)===String(d.plantId));
+  if(!p){toast('Plant not found');return}
+  d.date=val('date')||dateNow();
+  d.time=val('time')||timeNow();
+  d.details={...d.details,site:val('site'),plantType:p.type,make:val('make'),fleet:p.name,serial:val('serial')||p.serial||'',operator:val('opname'),hours:document.getElementById('hours')?.value||d.details.hours||''};
+  if(p&&d.details.serial)p.serial=d.details.serial;
+  if(p&&d.date===dateNow()&&d.details.site)p.site=d.details.site;
+  d.checkPhotos??={};
+  d.comments??={};
+  document.querySelectorAll('[data-comment]').forEach(t=>d.comments[t.dataset.comment]=t.value);
+  syncDefectsFromChecks();
+
+  if(currentRole!=='operator'){
+    d.defects=[...document.querySelectorAll('#defects .check')].map((el,i)=>{
+      const old=current.defects[i]||{};const o={...old};
+      el.querySelectorAll('[data-d]').forEach(x=>o[x.dataset.d]=x.value);
+      o.photos=old.photos||[];
+      return o
+    });
+  }else{
+    // The operator cannot see the defect section, so keep the auto-created
+    // defects from the checklist (including comments and photos).
+    d.defects=[...(current.defects||[])];
+  }
+
+  d.status=selectedStatus;
+  // Preserve any signatures on historic inspections, but no new signature panels are shown.
+  if(currentRole!=='operator'){
+    d.details.supervisor=val('supname');
+    d.repair={released:val('released'),time:val('releasedtime'),status:val('repairstatus')};
+  }
+
+  const idx=state.inspections.findIndex(x=>x.id===d.id);
+  if(idx>=0)state.inspections[idx]=d;else state.inspections.push(d);
+  saveLocal();
+  if(centralEnabled){
+    try{
+      await syncInspectionToCloud(d);
+      if(d.date===dateNow()&&d.details.site)await syncPlantFromInspection(d.plantId,d.details.site,d.details.serial);
+    }catch(e){
+      console.warn('Cloud sync failed',e);
+      toast('Inspection saved on this device, but shared save failed: '+(e?.message||e));
+      setTimeout(home,900);
+      return;
+    }
+  }
+  toast('Inspection saved and synced');
+  setTimeout(home,500);
+}
+function editInspection(id){const d=state.inspections.find(x=>x.id===id);if(!d){toast('Inspection not found');return}if(currentRole==='operator'&&d.createdBy&&d.createdBy!==currentUser?.id){toast('You can only edit inspections you submitted.');return}if(currentRole==='operator'&&!d.createdBy&&d.date!==dateNow()){toast('Older inspections can only be edited by Site management or Admin.');return}renderForm(JSON.parse(JSON.stringify(d)))}
+function plantHistory(pid){if(!requirePermission('plant.manage','Plant history is available to Admin and Site management.'))return;const p=state.plants.find(x=>x.id===pid);const ins=state.inspections.filter(x=>x.plantId===pid).sort((a,b)=>b.date.localeCompare(a.date));document.getElementById('app').innerHTML=`<div class="nav"><button onclick="home()">← Dashboard</button></div><div class="card"><h2>${esc(p.name)} — History</h2><div class="actions"><button class="primary" onclick="newInspection('${pid}')">Today's check</button><button onclick="weeklyReport('${pid}')">Send report</button></div>${ins.length?ins.map(i=>`<div class="dayrow"><div><strong>${esc(i.date)}</strong><div class="mini">${esc(i.details.operator||'')} • ${esc(i.details.site||'')}</div></div><div><span class="pill ${statusClass(i.status)}">${esc(i.status||'Incomplete')}</span>${repairBadgeHTML(i.repair?.status)} <button onclick="editInspection('${i.id}')">View</button></div></div>`).join(''):'<p class="muted">No completed inspections.</p>'}</div>`}
+function recipients(){home()}
+function addRecipient(){const n=val('rname'),e=val('remail');if(!n||!e||!e.includes('@')){toast('Enter a name and valid email');return}state.recipients.push([n,e]);save();toast('Recipient added')}
+function renderReportRecipients(){const el=document.getElementById('reportRecipients');if(!el)return;el.innerHTML=state.recipients.map((r,i)=>`<div class="recipient"><label><input type="checkbox" data-report-r="${i}"> ${esc(r[0])}</label><div class="mini">${esc(r[1])}</div></div>`).join('')}
+function addReportRecipient(){const n=val('reportNewName'),e=val('reportNewEmail');if(!n||!e||!e.includes('@')){toast('Enter a name and valid email');return}state.recipients.push([n,e]);save();renderReportRecipients();document.getElementById('reportNewName').value='';document.getElementById('reportNewEmail').value='';toast('New email added')}
+function weeklyReport(pid){if(!requirePermission('reports.view','Reports are available to Admin and Site management.'))return;const plants=pid?[state.plants.find(x=>x.id===pid)]:state.plants;const sites=[...new Set(state.inspections.map(i=>i.details?.site).concat(plants.filter(Boolean).map(p=>p.site)).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),undefined,{numeric:true,sensitivity:'base'}));document.getElementById('app').innerHTML=`<div class="nav no-print"><button onclick="home()">← Dashboard</button></div><div class="card no-print"><h2>Report</h2><div class="grid"><label>Plant list<select id="wrlist"><option value="">All plant</option><option value="DGS Plant">DGS Plant</option><option value="Hired Plant">Hired Plant</option></select></label><label>Site<select id="wrsite"><option value="">All sites</option>${sites.map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join('')}</select></label><label>Defects reported<select id="wrdefects"><option value="">All inspections</option><option value="yes">Defects reported</option><option value="no">No defects reported</option><option value="repair-outstanding">Repair Outstanding</option><option value="repair-complete">Repair Complete</option></select></label><label>Plant<select id="wrplant"><option value="">All plants</option>${plants.filter(Boolean).map(p=>`<option value="${p.id}">${esc(p.list||'DGS Plant')} — ${esc(p.name)}</option>`).join('')}</select></label><label>From<input id="wrfrom" type="date" value="${new Date(Date.now()-6*864e5).toISOString().slice(0,10)}"></label><label>To<input id="wrto" type="date" value="${dateNow()}"></label></div><div class="actions" style="margin-top:10px"><button class="primary" onclick="buildReport()">Generate report</button></div></div><div class="card no-print"><h3>Email recipients</h3><p class="muted">Select existing recipients, or add a new email address for this report.</p><div id="reportRecipients" class="email-grid">${state.recipients.map((r,i)=>`<div class="recipient"><label><input type="checkbox" data-report-r="${i}"> ${esc(r[0])}</label><div class="mini">${esc(r[1])}</div></div>`).join('')}</div><div class="actions" style="margin-top:10px"><button onclick="selectAllReportRecipients(true)">Select all</button><button onclick="selectAllReportRecipients(false)">Clear all</button></div><hr><h3>Add new email</h3><div class="grid"><label>Name<input id="reportNewName" placeholder="Name"></label><label>Email<input id="reportNewEmail" type="email" placeholder="email@example.com"></label></div><button style="margin-top:10px" onclick="addReportRecipient()">Add new email</button></div><div id="reportOut"></div>`}
+function buildReport(){const pid=val('wrplant'),list=val('wrlist'),site=val('wrsite'),defFilter=val('wrdefects'),from=val('wrfrom'),to=val('wrto');const rows=state.inspections.filter(i=>{const p=state.plants.find(x=>x.id===i.plantId);if(!p)return false;const hasDef=Array.isArray(i.defects)&&i.defects.length>0;const repairStatus=i.repair?.status||'';const defectMatch=!defFilter||(defFilter==='yes'?hasDef:defFilter==='no'?!hasDef:defFilter==='repair-outstanding'?repairStatus==='Repair outstanding':defFilter==='repair-complete'?repairStatus==='Repair Complete':true);return (!pid||i.plantId===pid)&&(!list||(p.list||'DGS Plant')===list)&&(!site||String(i.details?.site||p.site||'')===site)&&defectMatch&&i.date>=from&&i.date<=to}).sort((a,b)=>a.date.localeCompare(b.date));const groups={};rows.forEach(i=>(groups[i.plantId]??=[]).push(i));let html='<div class="report"><div class="report-brand"><img src="dgs-logo.jpg" alt="DGS Dynamic Ground Solutions logo"><h1>DGS PUWER Plant Inspection Report</h1></div><p><strong>Period:</strong> '+esc(from)+' to '+esc(to)+'</p>';if(list)html+='<p><strong>Plant list:</strong> '+esc(list)+'</p>';if(site)html+='<p><strong>Site:</strong> '+esc(site)+'</p>';if(defFilter)html+='<p><strong>Defects / repair:</strong> '+(defFilter==='yes'?'Defects reported':defFilter==='no'?'No defects reported':defFilter==='repair-outstanding'?'Repair Outstanding':defFilter==='repair-complete'?'Repair Complete':'')+'</p>';if(!rows.length)html+='<p>No completed inspections found for the selected filters.</p>';for(const [pId,arr] of Object.entries(groups)){const p=state.plants.find(x=>x.id===pId);html+=`<div class="pagebreak"><h2>${esc(p.name)}</h2><p>${esc(p.type)} • ${esc(p.name||'')} • ${esc(arr[0]?.details?.site||p.site||'')} • Serial: ${esc(arr[0]?.details?.serial||p.serial||'')}</p>`;arr.forEach((d)=>{html+=`<h3>${esc(d.date)} — ${esc(d.status||'Incomplete')}</h3><table><tr><th style="width:7%">No.</th><th>Check item</th><th style="width:10%">Result</th><th>Comments / defect</th></tr>`;UNIVERSAL.forEach((q,i)=>html+=`<tr><td>${i+1}</td><td>${esc(q)}</td><td>${esc(d.checks[i]||'')}</td><td>${esc(d.comments['u'+i]||'')}</td></tr>`);html+=`<tr><td>P</td><td>${esc(SPEC[p.type]||'Plant-specific check')}</td><td>${esc(d.spec||'')}</td><td>${esc(d.comments.spec||'')}</td></tr></table>`;if(d.defects?.length){html+='<h4>Defects / corrective action</h4><table><tr><th>Ref</th><th>Defect</th><th>Immediate action</th><th>Reported to</th><th>Target</th><th>Closed by</th></tr>';d.defects.forEach(x=>html+=`<tr><td>${esc(x.ref)}</td><td>${esc(x.defect)}</td><td>${esc(x.action)}</td><td>${esc(x.reported)}</td><td>${esc(x.target)}</td><td>${esc(x.closed)}</td></tr>`);html+='</table>';const photoItems=d.defects.flatMap(x=>x.photos||[]);if(photoItems.length){html+='<h4>Defect photographs</h4><div class="photo-preview">'+photoItems.map(src=>`<img class="photo-thumb" src="${src}" alt="Defect photograph" onclick="openPhotoActions(this.src)">`).join('')+'</div>'}}html+=`<p><strong>Operator:</strong> ${esc(d.details.operator||'')} &nbsp; <strong>Supervisor:</strong> ${esc(d.details.supervisor||'')}</p>`;});html+='</div>'}html+='<div class="no-print" style="margin-top:20px"><button class="primary" onclick="window.print()">Print / Save as PDF</button> <button onclick="emailReport()">Email selected recipients</button></div></div>';document.getElementById('reportOut').innerHTML=html;window.reportRows=rows}
+function openPhotoActions(src){
+  closePhotoActions();
+  const m=document.createElement('div');
+  m.className='photo-modal';
+  m.id='photoModal';
+  m.innerHTML=`<div class="photo-dialog" role="dialog" aria-modal="true"><img src="${src}" alt="Defect photograph"><div class="photo-dialog-actions"><button class="primary" type="button" onclick="enlargePhoto('${src}')">Enlarge photo</button><button type="button" onclick="downloadPhoto('${src}')">Download photo</button><button type="button" onclick="closePhotoActions()">Close</button></div></div>`;
+  m.addEventListener('click',e=>{if(e.target===m)closePhotoActions()});
+  document.body.appendChild(m);
+}
+function enlargePhoto(src){
+  const m=document.getElementById('photoModal');
+  if(!m)return;
+  const img=m.querySelector('.photo-dialog img');
+  if(img){img.style.maxWidth='96vw';img.style.maxHeight='88vh';}
+}
+function downloadPhoto(src){
+  const a=document.createElement('a');
+  a.href=src;a.download='DGS-PUWER-defect-photo-'+new Date().toISOString().slice(0,19).replace(/[:T]/g,'-')+'.jpg';
+  document.body.appendChild(a);a.click();a.remove();
+}
+function closePhotoActions(){const m=document.getElementById('photoModal');if(m)m.remove()}
+
+function selectAllReportRecipients(on){document.querySelectorAll('[data-report-r]').forEach(x=>x.checked=on)}
+function emailReport(){
+  const checks=[...document.querySelectorAll('[data-report-r]:checked')];
+  const ids=checks.map(x=>state.recipients[Number(x.dataset.reportR)]?.[1]).filter(Boolean);
+  if(!ids.length){toast('Select at least one recipient');return}
+  const reportRows=Array.isArray(window.reportRows)?window.reportRows:[];
+  const isDefectInspection=(i)=>Array.isArray(i.defects)&&i.defects.length>0 || (Array.isArray(i.checks)&&i.checks.some(v=>String(v||'').trim().toLowerCase()==='defect')) || String(i.spec||'').trim().toLowerCase()==='defect';
+  const entries=[];const seen=new Set();
+  reportRows.filter(isDefectInspection).forEach(i=>{
+    const p=state.plants.find(x=>String(x.id)===String(i.plantId));
+    if(!p)return;
+    const plantName=String(p.name||p.fleet||p.fleet_name||'Unnamed plant').trim();
+    const plantType=String(p.type||p.plant_type||'Plant').trim();
+    const site=String(i.details?.site||p.site||'Site not recorded').trim();
+    const key=[String(i.plantId),site].join('|');
+    if(seen.has(key))return;seen.add(key);
+    entries.push(`- ${plantName} (${plantType}) — Site: ${site}`);
+  });
+  if(!entries.length){toast('No plant defects found in the generated report. Choose a date range or filters that include inspections with defects.');return}
+  // Put each address in the mailto recipient list itself rather than a single
+  // `to=` query value. Outlook was treating the query value as one invalid address.
+  // Outlook recognises semicolons as recipient delimiters when they are in the
+  // recipient portion of the mailto URI. Strip whitespace/control characters first.
+  const cleanIds=[...new Set(ids.map(v=>String(v||'').replace(/[\r\n;]/g,'').trim()).filter(Boolean))];
+  if(!cleanIds.length){toast('No valid recipients selected');return}
+  const to=cleanIds.join(';');
+  const subject=encodeURIComponent('DGS PLANT DEFECT');
+  const body=encodeURIComponent('The following items of plant have been identified as having defects\n\n'+entries.join('\n'));
+  window.location.href=`mailto:${to}?subject=${subject}&body=${body}`;
+}
+// Compatibility helpers for dashboard navigation and access-state flow.
+function saveAndNew(){ return saveInspection(); }
+// Older PUWER screens still call home(), while the central DGS portal uses appHome().
+function home(){ appHome(); }
+let authFlowBusy=false;
+
+// Explicitly expose app actions for GitHub Pages / Android webviews.
+// Some embedded browsers do not resolve inline onclick handlers to lexical globals reliably.
+Object.assign(window,{home,appHome,portalHome,openPuwer,openModule,openSupervisorDashboard,newSupervisorInspection,editSupervisorInspection,renderSupervisorForm,setSupervisorAnswer,supervisorAddPhotos,saveSupervisorInspection,refreshSupervisorCloud,renderSupervisorDashboard,clearSupervisorSiteFilter,supervisorReport,buildSupervisorReport,emailSupervisorReport,handleSupervisorSiteChange,signIn,signOut,loginScreen,showPinScreen,operatorAccess,submitPinAccess,forceAppUpdate,newPlant,savePlant,editPlant,saveEditedPlant,newInspection,renderForm,setCheck,addCheckPhotos,compressPhoto,addDefect,clearSig,saveInspection,saveAndNew,editInspection,plantHistory,recipients,addRecipient,addReportRecipient,weeklyReport,buildReport,selectAllReportRecipients,emailReport,populateDashboardFilters,clearDashboardFilters,renderDashboard,repairStatusClass,handleSiteChange,openPhotoActions,enlargePhoto,downloadPhoto,closePhotoActions});
+
+document.addEventListener('click',function(e){
+  const b=e.target.closest('button');
+  if(!b) return;
+  // Give dynamically-created inspection buttons a direct fallback.
+  const m=b.getAttribute('onclick')||'';
+  if(m.includes('newInspection(')){
+    const match=m.match(/newInspection\('([^']+)'\)/);
+    if(match){ e.preventDefault(); window.newInspection(match[1]); }
+  }
+});
+// service worker
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js?v=67').catch(()=>{});
+
+// Keep the dashboard synchronised with Supabase every 5 seconds.
+// The polling is the reliable fallback for multi-device updates. Supabase Realtime
+// is also enabled when available, so changes can appear immediately.
+let autoSyncBusy=false;
+async function autoSyncDashboard(){
+  if(!centralEnabled || autoSyncBusy || cloudSyncBusy || current || currentModule==='supervisor-form') return;
+  if(document.visibilityState !== 'visible') return;
+  if(!document.getElementById('todayList') && !document.getElementById('supervisorDashboard')) return;
+  autoSyncBusy=true;
+  try{
+    // Retry locally retained hired-plant records after mobile/offline save failures.
+    for(const p of state.plants.filter(x=>x&&x._pendingSync)){
+      const row={id:p.id,plant_list:p.list||'Hired Plant',site:p.site||'',plant_type:p.type||'',make_model:p.make||'',fleet_name:p.name||'',serial_number:p.serial||'',updated_at:new Date().toISOString()};
+      const {error}=await db.from('plants').upsert([row],{onConflict:'id'});
+      if(!error)delete p._pendingSync;
+      else console.warn('Pending plant shared sync failed',error);
+    }
+    // Retry locally retained supervisor inspections as well.
+    for(const s of (state.supervisorInspections||[]).filter(x=>x&&x._pendingSync)){
+      try{await syncSupervisorInspectionToCloud(s);delete s._pendingSync}
+      catch(e){console.warn('Pending supervisor inspection sync failed',e)}
+    }
+    saveLocal();
+    await loadFromCloud();
+    if(document.getElementById('todayList')){
+      populateDashboardFilters();
+      renderDashboard();
+    }
+    if(document.getElementById('supervisorDashboard'))renderSupervisorDashboard();
+  }catch(e){console.warn('Automatic shared-data sync failed',e)}
+  finally{autoSyncBusy=false;}
+}
+function setupRealtimeSync(){
+  if(!centralEnabled || !db || realtimeChannel) return;
+  try{
+    realtimeChannel=db.channel('dgs-puwer-live-sync')
+      .on('postgres_changes',{event:'*',schema:'public',table:'plants'},()=>autoSyncDashboard())
+      .on('postgres_changes',{event:'*',schema:'public',table:'inspections'},()=>autoSyncDashboard())
+      .on('postgres_changes',{event:'*',schema:'public',table:'supervisor_inspections'},()=>autoSyncDashboard())
+      .subscribe(status=>{if(status==='CHANNEL_ERROR')console.warn('Supabase Realtime unavailable; 5-second polling remains active')});
+  }catch(e){console.warn('Realtime setup failed; 5-second polling remains active',e)}
+}
+window.addEventListener('pageshow',()=>autoSyncDashboard());
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')autoSyncDashboard()});
+setInterval(autoSyncDashboard,5000);
+async function bootDgsApp(){
+  if(!centralEnabled){loginScreen('Central Supabase configuration is missing.');return;}
+  try{
+    // V44 temporary PIN access uses the Supabase anon role, not Supabase
+    // Anonymous Auth. Clear any anonymous Auth session left by V39-V43 so the
+    // existing shared PUWER database permissions are used again.
+    const {data:{session}}=await db.auth.getSession();
+    if(session?.user){
+      try{await db.auth.signOut()}catch(_){}
+    }
+    loginScreen();
+  }catch(e){
+    console.error(e);
+    loginScreen('Unable to connect to the DGS access service.');
+  }
+}
+bootDgsApp();
+</script></body></html>
