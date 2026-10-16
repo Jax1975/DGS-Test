@@ -1,0 +1,9 @@
+{
+  "name": "DGS App",
+  "short_name": "DGS App",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f7f4",
+  "theme_color": "#087f23",
+  "icons": []
+}
